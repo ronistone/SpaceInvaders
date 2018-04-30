@@ -3,17 +3,22 @@ package com.space.invaders.controllers;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+//import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.ObjectMap;
 import com.space.invaders.Models.ship.Ship;
+import com.space.invaders.Models.shot.Shot;
 import com.space.invaders.Views.BaseScreen;
 import com.space.invaders.Views.GameScreen;
 import com.space.invaders.Views.MainMenu;
+
+import java.util.ArrayList;
+import java.util.Iterator;
 
 public class SpaceInvaders extends Game {
 
     private ObjectMap<Class<? extends BaseScreen>, BaseScreen> screens = new ObjectMap<Class<? extends BaseScreen>, BaseScreen>();
 
-	
+
 	@Override
 	public void create () {
 	    loadScreens();
@@ -46,9 +51,24 @@ public class SpaceInvaders extends Game {
     }
 
 
-    public void update(Ship player){
-	    if(Gdx.input.isTouched()){
-	        player.setX(BaseScreen.VIRTUAL_WIDHT);
+    public void update(Ship player, ArrayList<Shot> shots){
+	    float delta = Gdx.graphics.getDeltaTime();
+
+        Iterator<Shot> it = shots.iterator();
+	    while(it.hasNext()){
+	        Shot s = it.next();
+	        s.update(delta);
+            if(!s.isLive(BaseScreen.VIRTUAL_WIDHT, BaseScreen.VIRTUAL_HEIGHT)){
+                it.remove();
+            }
+        }
+
+        if(player.getLAST_SHOT() > 0){
+	        player.setLAST_SHOT(player.getLAST_SHOT() - delta);
+        }
+        if(Gdx.input.isTouched() && player.getLAST_SHOT() <= 0){
+            shots.add(player.shot());
+            player.setLAST_SHOT(1/player.getSHOT_RATE());
         }
 
         float accelX = Gdx.input.getAccelerometerX();

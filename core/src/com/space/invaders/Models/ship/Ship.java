@@ -3,6 +3,7 @@ package com.space.invaders.Models.ship;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.space.invaders.Models.shot.Shot;
 
 public abstract class Ship {
 
@@ -12,6 +13,8 @@ public abstract class Ship {
     private float HEIGHT = -90;
     private float LATERAL_SPEED = 20;
     private float SPEED = 6;
+    private float SHOT_RATE = 5;
+    private float LAST_SHOT;
 
     public Ship(float X, float Y){
         this.X = X;
@@ -101,6 +104,24 @@ public abstract class Ship {
     public void setSPEED(float SPEED) {
         this.SPEED = SPEED;
     }
+
+    public float getSHOT_RATE() {
+        return SHOT_RATE;
+    }
+
+    public void setSHOT_RATE(float SHOT_RATE) {
+        this.SHOT_RATE = SHOT_RATE;
+    }
+
+    public float getLAST_SHOT() {
+        return LAST_SHOT;
+    }
+
+    public void setLAST_SHOT(float LAST_SHOT) {
+        this.LAST_SHOT = LAST_SHOT;
+    }
+
+    public abstract Shot shot();
 }
 
 

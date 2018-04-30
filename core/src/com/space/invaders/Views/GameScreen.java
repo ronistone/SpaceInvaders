@@ -8,10 +8,13 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import com.space.invaders.Models.shot.Shot;
 import com.space.invaders.controllers.SpaceInvaders;
 import com.space.invaders.Models.ship.DefaultPlayer;
 import com.space.invaders.Models.ship.Ship;
 import com.space.invaders.Models.ship.SimpleEnemy;
+
+import java.util.ArrayList;
 
 public class GameScreen extends BaseScreen {
 
@@ -22,9 +25,11 @@ public class GameScreen extends BaseScreen {
     private Ship player,enemy;
     private Camera camera;
     private Viewport viewport;
+    private ArrayList<Shot> shots;
 
     private GameScreen(SpaceInvaders g) {
         super(g);
+        shots = new ArrayList<>();
     }
 
     public static GameScreen getInstance(SpaceInvaders g){
@@ -56,17 +61,22 @@ public class GameScreen extends BaseScreen {
     public void render(float delta) {
 
         camera.update();
+        game.update(player, shots);
+
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         batch.setProjectionMatrix(camera.combined);
 
         batch.begin();
 
         batch.draw(background,0,0, VIRTUAL_WIDHT, VIRTUAL_HEIGHT);
-        game.update(player);
         enemy.render(batch);
         player.render(batch);
+        for(Shot s: shots){
+            s.render(batch);
+        }
 
         batch.end();
+
     }
 
 
