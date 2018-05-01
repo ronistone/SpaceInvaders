@@ -34,8 +34,9 @@ public class SpaceInvaders extends Game {
 
 	@Override
 	public void render () {
-        Screen currentScreen = getScreen();
-        currentScreen.render(Gdx.graphics.getDeltaTime());
+	    super.render();
+//        Screen currentScreen = getScreen();
+//        currentScreen.render(Gdx.graphics.getDeltaTime());
 	}
 
     @Override
@@ -58,9 +59,8 @@ public class SpaceInvaders extends Game {
     }
 
 
-    public void update(Ship player, Array<Ship> ships, Array<Bullet> shots){
-	    float delta = Gdx.graphics.getDeltaTime();
-
+    public void update(float delta, Ship player, Array<Ship> ships, Array<Bullet> shots){
+        System.out.println(delta);
         shootService.shoot(player, shots, delta);
 
         for(Ship s: ships){

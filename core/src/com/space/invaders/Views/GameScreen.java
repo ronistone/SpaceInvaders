@@ -65,7 +65,7 @@ public class GameScreen extends BaseScreen {
     public void render(float delta) {
 
         camera.update();
-        game.update(player, ships, shots);
+        game.update(delta, player, ships, shots);
 
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         batch.setProjectionMatrix(camera.combined);

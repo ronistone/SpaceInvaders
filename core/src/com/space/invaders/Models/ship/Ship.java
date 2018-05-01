@@ -1,14 +1,14 @@
 package com.space.invaders.Models.ship;
 
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.space.invaders.Models.shot.Bullet;
 import com.space.invaders.controllers.SpaceInvaders;
 import com.space.invaders.services.movement.MovementService;
 
-public abstract class Ship {
+public abstract class Ship extends Sprite {
 
-    private float X, Y;
     private Texture shipTexture;
     private float WIDTH = 100;
     private float HEIGHT = -90;
@@ -20,55 +20,38 @@ public abstract class Ship {
     protected SpaceInvaders g;
     protected MovementService movement;
 
-    public Ship(float X, float Y, SpaceInvaders game){
-        this.X = X;
-        this.Y = Y;
+    public Ship(float x, float y, SpaceInvaders game){
+        setPosition(x,y);
         g = game;
         loadTexture();
     }
 
     public void render(SpriteBatch sb){
             moveForward();
-            sb.draw(shipTexture,X,Y,WIDTH,HEIGHT);
+            sb.draw(shipTexture,getX(),getY(),WIDTH,HEIGHT);
     }
 
     public abstract void loadTexture();
     public abstract void move(float delta);
 
     private void moveForward(){
-        if(Y + HEIGHT> 0) {
-            Y -= SPEED;
+        if(getY() + HEIGHT> 0) {
+            setY(getY() - SPEED);
         }
     }
     public void moveLeft(float delta, float scale, float leftLimit){
-        if(X > leftLimit) {
-            X -= (delta * scale * LATERAL_SPEED);
+        if(getX() > leftLimit) {
+            setX(getX() - (delta * scale * LATERAL_SPEED));
         }
     }
     public void moveRight(float delta, float scale, float rightLimit){
-        if(X+WIDTH < rightLimit) {
-            X += (delta * scale * LATERAL_SPEED);
+        if(getX() + WIDTH < rightLimit) {
+            setX(getX() + (delta * scale * LATERAL_SPEED));
         }
     }
 
     public void dispose(){
         shipTexture.dispose();
-    }
-
-    public float getX() {
-        return X;
-    }
-
-    public void setX(float x) {
-        X = x;
-    }
-
-    public float getY() {
-        return Y;
-    }
-
-    public void setY(float y) {
-        Y = y;
     }
 
     public Texture getShipTexture() {

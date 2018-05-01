@@ -1,30 +1,33 @@
 package com.space.invaders.Models.shot;
 
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import com.space.invaders.controllers.SpaceInvaders;
 
-public abstract class Bullet {
+public abstract class Bullet extends Sprite {
 
     protected float SHOT_WIDHT = 5;
     protected float SHOT_HEIGHT = 18;
     protected float SPEED = 10;
-    protected float X;
-    protected float Y;
     protected Rectangle shotRect;
 
     protected SpaceInvaders g;
 
     public Bullet(float x, float y, SpaceInvaders game){
-        X = x;
-        Y = y;
+        setPosition(x,y);
         g = game;
     }
 
     public abstract void render(SpriteBatch batch);
     public abstract void update(float delta);
-    public abstract boolean isLive(float widht, float height);
+
+    public boolean isLive(float widht, float height){
+        if(getX() < 0 || getX() > widht) return false;
+        if(getY() < 0 || getY() > height) return false;
+        return true;
+    }
 
     public Rectangle getShotRect() {
         return shotRect;
@@ -58,19 +61,4 @@ public abstract class Bullet {
         this.SPEED = SPEED;
     }
 
-    public float getX() {
-        return X;
-    }
-
-    public void setX(float x) {
-        X = x;
-    }
-
-    public float getY() {
-        return Y;
-    }
-
-    public void setY(float y) {
-        Y = y;
-    }
 }

@@ -26,21 +26,14 @@ public class DefaultBullet extends Bullet {
 
     public void render(SpriteBatch batch){
         loadTexture();
-        batch.draw(shotTexture, X, Y, SHOT_WIDHT, SHOT_HEIGHT);
+        batch.draw(shotTexture, getX(), getY(), SHOT_WIDHT, SHOT_HEIGHT);
     }
 
     public void update(float delta){
-        Y += SPEED;
-        shotRect.x = X;
-        shotRect.y = Y;
+        setY(getY() + SPEED);
+        shotRect.x = getX();
+        shotRect.y = getY();
     }
 
-    public boolean isLive(float widht, float height){
-        if(X < 0 || X > widht){
-            System.out.println("widht"); return false;}
-        if(Y < 0 || Y > height){
-            System.out.println("height\n Y:"+Y+ "\nheight: "+ height); return false;}
-        return true;
-    }
 
 }
