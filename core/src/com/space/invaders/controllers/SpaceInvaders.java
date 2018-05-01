@@ -5,6 +5,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 //import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.ObjectMap;
 import com.space.invaders.Models.ship.Ship;
 import com.space.invaders.Models.shot.Shot;
@@ -55,7 +56,7 @@ public class SpaceInvaders extends Game {
     }
 
 
-    public void update(Ship player, ArrayList<Shot> shots){
+    public void update(Ship player, Array<Ship> ships, Array<Shot> shots){
 	    float delta = Gdx.graphics.getDeltaTime();
 
         Iterator<Shot> it = shots.iterator();
@@ -74,14 +75,10 @@ public class SpaceInvaders extends Game {
             shots.add(player.shot());
             player.setLAST_SHOT(1/player.getSHOT_RATE());
         }
-
-        float accelX = Gdx.input.getAccelerometerX();
-
-        if(accelX < 0){
-            player.moveRight(Math.abs(accelX)/10, BaseScreen.VIRTUAL_WIDHT);
-        }else{
-            player.moveLeft(Math.abs(accelX)/10, 0);
+        for(Ship s: ships){
+	        s.move();
         }
+        player.move();
     }
 
     public Texture getTexture(String path){

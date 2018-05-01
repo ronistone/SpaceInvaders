@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.space.invaders.Models.shot.Shot;
 import com.space.invaders.controllers.SpaceInvaders;
+import com.space.invaders.services.movement.Movement;
 
 public abstract class Ship {
 
@@ -18,6 +19,7 @@ public abstract class Ship {
     private float LAST_SHOT;
 
     protected SpaceInvaders g;
+    protected Movement movement;
 
     public Ship(float X, float Y, SpaceInvaders game){
         this.X = X;
@@ -32,6 +34,7 @@ public abstract class Ship {
     }
 
     public abstract void loadTexture();
+    public abstract void move();
 
     private void moveForward(){
         if(Y + HEIGHT> 0) {
@@ -126,6 +129,14 @@ public abstract class Ship {
     }
 
     public abstract Shot shot();
+
+    public Movement getMovement() {
+        return movement;
+    }
+
+    public void setMovement(Movement movement) {
+        this.movement = movement;
+    }
 }
 
 

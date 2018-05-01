@@ -6,15 +6,15 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.space.invaders.Models.shot.Shot;
 import com.space.invaders.controllers.SpaceInvaders;
-import com.space.invaders.Models.ship.DefaultPlayer;
+import com.space.invaders.Models.ship.WhiteShip;
 import com.space.invaders.Models.ship.Ship;
-import com.space.invaders.Models.ship.SimpleEnemy;
-
-import java.util.ArrayList;
+import com.space.invaders.Models.ship.BlackShip;
+import com.space.invaders.services.movement.PlayerMovement;
 
 public class GameScreen extends BaseScreen {
 
@@ -22,14 +22,16 @@ public class GameScreen extends BaseScreen {
 
     private SpriteBatch batch;
     private Texture background;
-    private Ship player,enemy;
+    private Ship player;
     private Camera camera;
     private Viewport viewport;
-    private ArrayList<Shot> shots;
+    private Array<Shot> shots;
+    private Array<Ship> ships;
 
     private GameScreen(SpaceInvaders g) {
         super(g);
-        shots = new ArrayList<>();
+        shots = new Array<>();
+        ships = new Array<>();
     }
 
     public static GameScreen getInstance(SpaceInvaders g){
@@ -53,15 +55,17 @@ public class GameScreen extends BaseScreen {
         viewport = new StretchViewport(VIRTUAL_WIDHT, VIRTUAL_HEIGHT, camera);
 
         background = game.getTexture("background.jpg");
-        player = new DefaultPlayer(VIRTUAL_WIDHT/2, VIRTUAL_HEIGHT/2, game);
-        enemy = new SimpleEnemy(100, VIRTUAL_HEIGHT, game);
+        player = new WhiteShip(VIRTUAL_WIDHT/2, VIRTUAL_HEIGHT/2, game);
+        player.setMovement(new PlayerMovement());
+        ships.add(player);
+        ships.add(new BlackShip(100, VIRTUAL_HEIGHT, game));
     }
 
     @Override
     public void render(float delta) {
 
         camera.update();
-        game.update(player, shots);
+        game.update(player, ships, shots);
 
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         batch.setProjectionMatrix(camera.combined);
@@ -69,8 +73,9 @@ public class GameScreen extends BaseScreen {
         batch.begin();
 
         batch.draw(background,0,0, VIRTUAL_WIDHT, VIRTUAL_HEIGHT);
-        enemy.render(batch);
-        player.render(batch);
+        for(Ship s: ships){
+            s.render(batch);
+        }
         for(Shot s: shots){
             s.render(batch);
         }
@@ -83,8 +88,9 @@ public class GameScreen extends BaseScreen {
     @Override
     public void dispose() {
         batch.dispose();
-        player.dispose();
-        enemy.dispose();
+        for(Ship s: ships){
+            s.dispose();
+        }
     }
 
     @Override
