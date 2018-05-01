@@ -1,8 +1,6 @@
 package com.space.invaders.Models.ship;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Texture;
-import com.space.invaders.Models.shot.Shot;
+import com.space.invaders.Models.shot.Bullet;
 import com.space.invaders.controllers.SpaceInvaders;
 
 public class BlackShip extends Ship {
@@ -17,14 +15,14 @@ public class BlackShip extends Ship {
     }
 
     @Override
-    public void move() {
+    public void move(float delta) {
         if(movement != null){
-            movement.move(this);
+            movement.move(delta, this);
         }
     }
 
     @Override
-    public Shot shot() {
+    public Bullet shoot() {
         return null;
     }
 }

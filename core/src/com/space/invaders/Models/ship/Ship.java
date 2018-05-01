@@ -1,11 +1,10 @@
 package com.space.invaders.Models.ship;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.space.invaders.Models.shot.Shot;
+import com.space.invaders.Models.shot.Bullet;
 import com.space.invaders.controllers.SpaceInvaders;
-import com.space.invaders.services.movement.Movement;
+import com.space.invaders.services.movement.MovementService;
 
 public abstract class Ship {
 
@@ -13,13 +12,13 @@ public abstract class Ship {
     private Texture shipTexture;
     private float WIDTH = 100;
     private float HEIGHT = -90;
-    private float LATERAL_SPEED = 20;
+    private float LATERAL_SPEED = 600;
     private float SPEED = 6;
     private float SHOT_RATE = 5;
     private float LAST_SHOT;
 
     protected SpaceInvaders g;
-    protected Movement movement;
+    protected MovementService movement;
 
     public Ship(float X, float Y, SpaceInvaders game){
         this.X = X;
@@ -34,21 +33,21 @@ public abstract class Ship {
     }
 
     public abstract void loadTexture();
-    public abstract void move();
+    public abstract void move(float delta);
 
     private void moveForward(){
         if(Y + HEIGHT> 0) {
             Y -= SPEED;
         }
     }
-    public void moveLeft(float scale, float leftLimit){
+    public void moveLeft(float delta, float scale, float leftLimit){
         if(X > leftLimit) {
-            X -= (scale * LATERAL_SPEED);
+            X -= (delta * scale * LATERAL_SPEED);
         }
     }
-    public void moveRight(float scale, float rightLimit){
+    public void moveRight(float delta, float scale, float rightLimit){
         if(X+WIDTH < rightLimit) {
-            X += (scale * LATERAL_SPEED);
+            X += (delta * scale * LATERAL_SPEED);
         }
     }
 
@@ -128,13 +127,13 @@ public abstract class Ship {
         this.LAST_SHOT = LAST_SHOT;
     }
 
-    public abstract Shot shot();
+    public abstract Bullet shoot();
 
-    public Movement getMovement() {
+    public MovementService getMovement() {
         return movement;
     }
 
-    public void setMovement(Movement movement) {
+    public void setMovement(MovementService movement) {
         this.movement = movement;
     }
 }

@@ -8,24 +8,26 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.ObjectMap;
 import com.space.invaders.Models.ship.Ship;
-import com.space.invaders.Models.shot.Shot;
+import com.space.invaders.Models.shot.Bullet;
 import com.space.invaders.Views.BaseScreen;
 import com.space.invaders.Views.GameScreen;
 import com.space.invaders.Views.MainMenu;
 import com.space.invaders.services.AssetsService;
+import com.space.invaders.services.shot.ShootService;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 
 public class SpaceInvaders extends Game {
 
     private ObjectMap<Class<? extends BaseScreen>, BaseScreen> screens = new ObjectMap<Class<? extends BaseScreen>, BaseScreen>();
     private AssetsService textureManager;
+    private ShootService shootService;
 
 
 	@Override
 	public void create () {
 	    textureManager = AssetsService.getInstance();
+	    shootService = new ShootService();
 	    loadScreens();
         changeScreen(MainMenu.class);
 	}
@@ -56,29 +58,14 @@ public class SpaceInvaders extends Game {
     }
 
 
-    public void update(Ship player, Array<Ship> ships, Array<Shot> shots){
+    public void update(Ship player, Array<Ship> ships, Array<Bullet> shots){
 	    float delta = Gdx.graphics.getDeltaTime();
 
-        Iterator<Shot> it = shots.iterator();
-	    while(it.hasNext()){
-	        Shot s = it.next();
-	        s.update(delta);
-            if(!s.isLive(BaseScreen.VIRTUAL_WIDHT, BaseScreen.VIRTUAL_HEIGHT)){
-                it.remove();
-            }
-        }
+        shootService.shoot(player, shots, delta);
 
-        if(player.getLAST_SHOT() > 0){
-	        player.setLAST_SHOT(player.getLAST_SHOT() - delta);
-        }
-        if(Gdx.input.isTouched() && player.getLAST_SHOT() <= 0){
-            shots.add(player.shot());
-            player.setLAST_SHOT(1/player.getSHOT_RATE());
-        }
         for(Ship s: ships){
-	        s.move();
+	        s.move(delta);
         }
-        player.move();
     }
 
     public Texture getTexture(String path){

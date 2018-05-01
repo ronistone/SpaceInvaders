@@ -9,12 +9,12 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
-import com.space.invaders.Models.shot.Shot;
+import com.space.invaders.Models.shot.Bullet;
 import com.space.invaders.controllers.SpaceInvaders;
 import com.space.invaders.Models.ship.WhiteShip;
 import com.space.invaders.Models.ship.Ship;
 import com.space.invaders.Models.ship.BlackShip;
-import com.space.invaders.services.movement.PlayerMovement;
+import com.space.invaders.services.movement.PlayerMovementService;
 
 public class GameScreen extends BaseScreen {
 
@@ -25,7 +25,7 @@ public class GameScreen extends BaseScreen {
     private Ship player;
     private Camera camera;
     private Viewport viewport;
-    private Array<Shot> shots;
+    private Array<Bullet> shots;
     private Array<Ship> ships;
 
     private GameScreen(SpaceInvaders g) {
@@ -56,7 +56,7 @@ public class GameScreen extends BaseScreen {
 
         background = game.getTexture("background.jpg");
         player = new WhiteShip(VIRTUAL_WIDHT/2, VIRTUAL_HEIGHT/2, game);
-        player.setMovement(new PlayerMovement());
+        player.setMovement(new PlayerMovementService());
         ships.add(player);
         ships.add(new BlackShip(100, VIRTUAL_HEIGHT, game));
     }
@@ -76,7 +76,7 @@ public class GameScreen extends BaseScreen {
         for(Ship s: ships){
             s.render(batch);
         }
-        for(Shot s: shots){
+        for(Bullet s: shots){
             s.render(batch);
         }
 
