@@ -3,6 +3,7 @@ package com.space.invaders.Models.shot;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
+import com.space.invaders.controllers.SpaceInvaders;
 
 public abstract class Shot {
 
@@ -13,9 +14,12 @@ public abstract class Shot {
     protected float Y;
     protected Rectangle shotRect;
 
-    public Shot(float x, float y){
+    protected SpaceInvaders g;
+
+    public Shot(float x, float y, SpaceInvaders game){
         X = x;
         Y = y;
+        g = game;
     }
 
     public abstract void render(SpriteBatch batch);

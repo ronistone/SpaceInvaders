@@ -52,9 +52,9 @@ public class GameScreen extends BaseScreen {
         camera.position.set(VIRTUAL_WIDHT/2,VIRTUAL_HEIGHT/2,0);
         viewport = new StretchViewport(VIRTUAL_WIDHT, VIRTUAL_HEIGHT, camera);
 
-        background = new Texture(Gdx.files.internal("background.jpg"));
-        player = new DefaultPlayer(VIRTUAL_WIDHT/2, VIRTUAL_HEIGHT/2);
-        enemy = new SimpleEnemy(100, VIRTUAL_HEIGHT);
+        background = game.getTexture("background.jpg");
+        player = new DefaultPlayer(VIRTUAL_WIDHT/2, VIRTUAL_HEIGHT/2, game);
+        enemy = new SimpleEnemy(100, VIRTUAL_HEIGHT, game);
     }
 
     @Override

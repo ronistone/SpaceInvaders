@@ -4,13 +4,14 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
+import com.space.invaders.controllers.SpaceInvaders;
 
 public class DefaultShot extends Shot{
 
     private volatile static Texture shotTexture;
 
-    public DefaultShot(float x, float y){
-        super(x,y);
+    public DefaultShot(float x, float y, SpaceInvaders game){
+        super(x,y,game);
         this.setShotRect(new Rectangle(x,y,SHOT_WIDHT,SHOT_HEIGHT));
     }
 
@@ -18,7 +19,7 @@ public class DefaultShot extends Shot{
         if(shotTexture == null){
             synchronized (DefaultShot.class){
                 if(shotTexture == null){
-                    shotTexture = new Texture(Gdx.files.internal("shoot.png"));
+                    shotTexture = g.getTexture("shoot.png");
                 }
             }
         }

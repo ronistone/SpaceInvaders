@@ -49,7 +49,7 @@ public class MainMenu extends BaseScreen {
 
     @Override
     public void show() {
-        start = new Texture(Gdx.files.internal("start.png"));
+        start = game.getTexture("start.png");
         startRegion = new TextureRegion(start);
         startDrawable = new TextureRegionDrawable(startRegion);
         startButton = new ImageButton(startDrawable);

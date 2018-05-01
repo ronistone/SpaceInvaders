@@ -4,12 +4,14 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 //import com.badlogic.gdx.utils.Array;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.utils.ObjectMap;
 import com.space.invaders.Models.ship.Ship;
 import com.space.invaders.Models.shot.Shot;
 import com.space.invaders.Views.BaseScreen;
 import com.space.invaders.Views.GameScreen;
 import com.space.invaders.Views.MainMenu;
+import com.space.invaders.services.AssetsService;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -17,10 +19,12 @@ import java.util.Iterator;
 public class SpaceInvaders extends Game {
 
     private ObjectMap<Class<? extends BaseScreen>, BaseScreen> screens = new ObjectMap<Class<? extends BaseScreen>, BaseScreen>();
+    private AssetsService textureManager;
 
 
 	@Override
 	public void create () {
+	    textureManager = AssetsService.getInstance();
 	    loadScreens();
         changeScreen(MainMenu.class);
 	}
@@ -78,5 +82,9 @@ public class SpaceInvaders extends Game {
         }else{
             player.moveLeft(Math.abs(accelX)/10, 0);
         }
+    }
+
+    public Texture getTexture(String path){
+	    return textureManager.getTexture(path);
     }
 }

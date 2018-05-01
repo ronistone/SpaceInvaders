@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.space.invaders.Models.shot.Shot;
+import com.space.invaders.controllers.SpaceInvaders;
 
 public abstract class Ship {
 
@@ -16,9 +17,12 @@ public abstract class Ship {
     private float SHOT_RATE = 5;
     private float LAST_SHOT;
 
-    public Ship(float X, float Y){
+    protected SpaceInvaders g;
+
+    public Ship(float X, float Y, SpaceInvaders game){
         this.X = X;
         this.Y = Y;
+        g = game;
         loadTexture();
     }
 
