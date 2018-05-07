@@ -58,7 +58,11 @@ public class GameScreen extends BaseScreen {
         player = new WhiteShip(VIRTUAL_WIDHT/2, VIRTUAL_HEIGHT/2, game);
         player.setMovement(new PlayerMovementService());
         ships.add(player);
-        ships.add(new BlackShip(100, VIRTUAL_HEIGHT, game));
+        ships.add(new BlackShip(100, VIRTUAL_HEIGHT - 100, game));
+        ships.add(new BlackShip(210, VIRTUAL_HEIGHT - 100, game));
+        ships.add(new BlackShip(320, VIRTUAL_HEIGHT - 100, game));
+        ships.add(new BlackShip(430, VIRTUAL_HEIGHT - 100, game));
+        ships.add(new BlackShip(540, VIRTUAL_HEIGHT - 100, game));
     }
 
     @Override

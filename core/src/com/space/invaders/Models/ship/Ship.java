@@ -27,7 +27,7 @@ public abstract class Ship extends Sprite {
     }
 
     public void render(SpriteBatch sb){
-            moveForward();
+//            moveForward();
             sb.draw(shipTexture,getX(),getY(),WIDTH,HEIGHT);
     }
 

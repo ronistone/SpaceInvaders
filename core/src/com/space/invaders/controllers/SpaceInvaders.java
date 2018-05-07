@@ -1,9 +1,6 @@
 package com.space.invaders.controllers;
 
 import com.badlogic.gdx.Game;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Screen;
-//import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.ObjectMap;
@@ -15,7 +12,6 @@ import com.space.invaders.Views.MainMenu;
 import com.space.invaders.services.AssetsService;
 import com.space.invaders.services.shot.ShootService;
 
-import java.util.Iterator;
 
 public class SpaceInvaders extends Game {
 
@@ -35,8 +31,6 @@ public class SpaceInvaders extends Game {
 	@Override
 	public void render () {
 	    super.render();
-//        Screen currentScreen = getScreen();
-//        currentScreen.render(Gdx.graphics.getDeltaTime());
 	}
 
     @Override

@@ -72,6 +72,5 @@ public class MainMenu extends BaseScreen {
     public void dispose() {
         super.dispose();
         Gdx.input.setInputProcessor(null);
-//        stage.dispose();
     }
 }
