@@ -6,6 +6,9 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
+import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
@@ -14,6 +17,7 @@ import com.space.invaders.controllers.SpaceInvaders;
 import com.space.invaders.Models.ship.WhiteShip;
 import com.space.invaders.Models.ship.Ship;
 import com.space.invaders.Models.ship.BlackShip;
+import com.space.invaders.services.ContactListenerCustom;
 import com.space.invaders.services.movement.PlayerMovementService;
 
 public class GameScreen extends BaseScreen {
@@ -27,6 +31,8 @@ public class GameScreen extends BaseScreen {
     private Viewport viewport;
     private Array<Bullet> shots;
     private Array<Ship> ships;
+    private World world;
+    private Box2DDebugRenderer debug;
 
     private GameScreen(SpaceInvaders g) {
         super(g);
@@ -54,20 +60,36 @@ public class GameScreen extends BaseScreen {
         camera.position.set(VIRTUAL_WIDHT/2,VIRTUAL_HEIGHT/2,0);
         viewport = new StretchViewport(VIRTUAL_WIDHT, VIRTUAL_HEIGHT, camera);
 
+        world = new World(new Vector2(0,0), true);
+        world.setContactListener(new ContactListenerCustom());
+        debug = new Box2DDebugRenderer();
+
         background = game.getTexture("background.jpg");
-        player = new WhiteShip(VIRTUAL_WIDHT/2, VIRTUAL_HEIGHT/2, game);
+        player = new WhiteShip(VIRTUAL_WIDHT/2, VIRTUAL_HEIGHT/2, game, world);
         player.setMovement(new PlayerMovementService());
+        //player.createBody();
         ships.add(player);
-        ships.add(new BlackShip(100, VIRTUAL_HEIGHT - 100, game));
-        ships.add(new BlackShip(210, VIRTUAL_HEIGHT - 100, game));
-        ships.add(new BlackShip(320, VIRTUAL_HEIGHT - 100, game));
-        ships.add(new BlackShip(430, VIRTUAL_HEIGHT - 100, game));
-        ships.add(new BlackShip(540, VIRTUAL_HEIGHT - 100, game));
+        Ship a = new BlackShip(100, VIRTUAL_HEIGHT - 100, game, world);
+        a.setMovement(new PlayerMovementService());
+        ships.add(a);
+        a = new BlackShip(100, VIRTUAL_HEIGHT - 100, game, world);
+        a.setMovement(new PlayerMovementService());
+        ships.add(a);
+        a = new BlackShip(210, VIRTUAL_HEIGHT - 100, game, world);
+        a.setMovement(new PlayerMovementService());
+        ships.add(a);
+        a = new BlackShip(320, VIRTUAL_HEIGHT - 100, game, world);
+        a.setMovement(new PlayerMovementService());
+        ships.add(a);
+        a = new BlackShip(430, VIRTUAL_HEIGHT - 100, game, world);
+        a.setMovement(new PlayerMovementService());
+        ships.add(a);
     }
 
     @Override
     public void render(float delta) {
 
+        world.step(delta, 6, 2);
         camera.update();
         game.update(delta, player, ships, shots);
 
@@ -85,7 +107,7 @@ public class GameScreen extends BaseScreen {
         }
 
         batch.end();
-
+        debug.render(world, camera.combined);
     }
 
 

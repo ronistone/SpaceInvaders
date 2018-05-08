@@ -3,6 +3,8 @@ package com.space.invaders.Models.ship;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.physics.box2d.Body;
+import com.badlogic.gdx.physics.box2d.World;
 import com.space.invaders.Models.shot.Bullet;
 import com.space.invaders.controllers.SpaceInvaders;
 import com.space.invaders.services.movement.MovementService;
@@ -12,10 +14,12 @@ public abstract class Ship extends Sprite {
     private Texture shipTexture;
     private float WIDTH = 100;
     private float HEIGHT = -90;
-    private float LATERAL_SPEED = 600;
+    private float LATERAL_SPEED = 1000;
     private float SPEED = 6;
     private float SHOT_RATE = 5;
     private float LAST_SHOT;
+    public Body body;
+    protected World world;
 
     protected SpaceInvaders g;
     protected MovementService movement;
@@ -28,11 +32,15 @@ public abstract class Ship extends Sprite {
 
     public void render(SpriteBatch sb){
 //            moveForward();
-            sb.draw(shipTexture,getX(),getY(),WIDTH,HEIGHT);
+        setX(body.getPosition().x-getWIDTH()/2);
+        setY(body.getPosition().y-getHEIGHT()/2);
+        sb.draw(shipTexture,getX(),getY(),WIDTH,HEIGHT);
     }
 
     public abstract void loadTexture();
     public abstract void move(float delta);
+
+    public abstract void createBody();
 
     private void moveForward(){
         if(getY() + HEIGHT> 0) {

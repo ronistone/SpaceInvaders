@@ -8,13 +8,13 @@ public class PlayerMovementService extends MovementService {
 
 
     @Override
-    public void move(float delta, Ship ship) {
-        float accelX = Gdx.input.getAccelerometerX();
-
-        if(accelX < 0){
-            ship.moveRight(delta, Math.abs(accelX)/10, BaseScreen.VIRTUAL_WIDHT);
+    public void move(Ship ship) {
+        float move = Gdx.input.getAccelerometerX();
+        if((ship.body.getPosition().x +ship.getWIDTH()/2 < BaseScreen.VIRTUAL_WIDHT || move > 0) &&
+                (ship.body.getPosition().x - ship.getWIDTH()/2 > 0 || move < 0)) {
+            ship.body.setLinearVelocity(-move * ship.getLATERAL_SPEED(), 0f);
         }else{
-            ship.moveLeft(delta, Math.abs(accelX)/10, 0);
+            ship.body.setLinearVelocity(0f, 0f);
         }
     }
 }

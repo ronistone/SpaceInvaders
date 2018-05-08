@@ -54,7 +54,7 @@ public class SpaceInvaders extends Game {
 
 
     public void update(float delta, Ship player, Array<Ship> ships, Array<Bullet> shots){
-        System.out.println(delta);
+        //System.out.println(delta);
         shootService.shoot(player, shots, delta);
 
         for(Ship s: ships){
