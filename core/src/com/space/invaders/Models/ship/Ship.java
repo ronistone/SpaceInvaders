@@ -7,9 +7,12 @@ import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
 import com.space.invaders.Models.Collider;
 import com.space.invaders.Models.shot.Bullet;
+import com.space.invaders.Models.weapon.Weapon;
 import com.space.invaders.controllers.SpaceInvaders;
+import com.space.invaders.services.factory.BodyFactory;
 import com.space.invaders.services.movement.MovementService;
 
+import java.util.List;
 import java.util.Map;
 
 public abstract class Ship implements Collider  {
@@ -22,13 +25,14 @@ public abstract class Ship implements Collider  {
     private float SHOT_RATE = 5;
     private float LAST_SHOT;
     public Body body;
-    protected Map<String, Object> args;
+    protected World world;
     protected boolean isAlive;
     protected float x;
     protected float y;
 
     protected SpaceInvaders g;
     protected MovementService movement;
+    protected Weapon weapon;
 
     public Ship(float x, float y, SpaceInvaders game){
         setX(x);
@@ -46,10 +50,35 @@ public abstract class Ship implements Collider  {
     }
 
     public abstract void loadTexture();
-    public abstract void move(float delta);
-    public abstract void destruct();
 
-    public abstract void createBody();
+    public List<Bullet> shoot(){
+        return weapon.shoot();
+    }
+
+    @Override
+    public void collide(Object a) {
+        if(a instanceof Bullet){
+            Bullet b = (Bullet) a;
+            if(!b.getOwner().equals(this)) {
+                setAlive(false);
+            }
+        }
+    }
+
+    public void createBody() {
+        this.body = g.getBodyFactory().createSimpleShipBody(this, world);
+    }
+
+    public void destruct() {
+        world.destroyBody(body);
+    }
+
+    public void move(float delta) {
+        if(movement != null){
+            movement.move(this);
+        }
+    }
+
 
     private void moveForward(){
         if(getY() + HEIGHT> 0) {
@@ -127,8 +156,6 @@ public abstract class Ship implements Collider  {
         this.LAST_SHOT = LAST_SHOT;
     }
 
-    public abstract Bullet shoot();
-
     public MovementService getMovement() {
         return movement;
     }
@@ -159,6 +186,18 @@ public abstract class Ship implements Collider  {
 
     public void setAlive(boolean alive) {
         isAlive = alive;
+    }
+
+    public Weapon getWeapon() {
+        return weapon;
+    }
+
+    public void setWeapon(Weapon weapon) {
+        this.weapon = weapon;
+    }
+
+    public SpaceInvaders getGame() {
+        return g;
     }
 }
 

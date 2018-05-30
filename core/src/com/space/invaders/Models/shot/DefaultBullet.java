@@ -2,6 +2,7 @@ package com.space.invaders.Models.shot;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 import com.space.invaders.Models.ship.Ship;
 import com.space.invaders.controllers.SpaceInvaders;
@@ -10,8 +11,8 @@ public class DefaultBullet extends Bullet {
 
     private volatile static Texture shotTexture;
 
-    public DefaultBullet(float x, float y, SpaceInvaders game, World world, Ship ship){
-        super(x,y,game, world, ship);
+    public DefaultBullet(float x, float y, Vector2 v, SpaceInvaders game, World world, Ship ship){
+        super(x,y, v, game, world, ship);
     }
 
     private void loadTexture() {
@@ -51,7 +52,7 @@ public class DefaultBullet extends Bullet {
         Fixture fixture = body.createFixture(fixtureDef);
         fixture.setUserData(this);
         shape.dispose();
-        body.setLinearVelocity(0, SPEED);
+        body.setLinearVelocity(direction);
     }
 
     @Override

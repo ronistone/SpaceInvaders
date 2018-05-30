@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
 import com.space.invaders.Models.Collider;
@@ -14,22 +15,23 @@ public abstract class Bullet implements Collider{
 
     protected float SHOT_WIDHT = 5;
     protected float SHOT_HEIGHT = 18;
-    protected float SPEED = 3000;
     public Body body;
     protected World world;
     protected Ship owner;
     protected boolean isAlive;
     protected float x;
     protected float y;
+    protected Vector2 direction;
 
     protected SpaceInvaders g;
 
-    public Bullet(float x, float y, SpaceInvaders game, World world, Ship ship){
+    public Bullet(float x, float y, Vector2 v, SpaceInvaders game, World world, Ship ship){
         setPosition(x,y);
         g = game;
         this.world = world;
         this.owner = ship;
         isAlive = true;
+        direction = v;
         createBody();
     }
 
@@ -63,14 +65,6 @@ public abstract class Bullet implements Collider{
 
     public void setSHOT_HEIGHT(float SHOT_HEIGHT) {
         this.SHOT_HEIGHT = SHOT_HEIGHT;
-    }
-
-    public float getSPEED() {
-        return SPEED;
-    }
-
-    public void setSPEED(float SPEED) {
-        this.SPEED = SPEED;
     }
 
     public boolean isAlive() {

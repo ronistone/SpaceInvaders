@@ -2,6 +2,8 @@ package com.space.invaders.controllers;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.ObjectMap;
 import com.space.invaders.Models.ship.Ship;
@@ -10,6 +12,8 @@ import com.space.invaders.Views.BaseScreen;
 import com.space.invaders.Views.GameScreen;
 import com.space.invaders.Views.MainMenuScreen;
 import com.space.invaders.services.AssetsService;
+import com.space.invaders.services.ContactListenerCustom;
+import com.space.invaders.services.factory.BodyFactory;
 import com.space.invaders.services.shot.ShootService;
 
 
@@ -18,12 +22,17 @@ public class SpaceInvaders extends Game {
     private ObjectMap<Class<? extends BaseScreen>, BaseScreen> screens = new ObjectMap<Class<? extends BaseScreen>, BaseScreen>();
     private AssetsService textureManager;
     private ShootService shootService;
+    private BodyFactory bodyFactory;
+    private World world;
 
 
 	@Override
 	public void create () {
 	    textureManager = AssetsService.getInstance();
 	    shootService = new ShootService();
+	    bodyFactory = new BodyFactory();
+        world = new World(new Vector2(0,0), true);
+        world.setContactListener(new ContactListenerCustom());
 	    loadScreens();
         changeScreen(MainMenuScreen.class);
 	}
@@ -68,5 +77,13 @@ public class SpaceInvaders extends Game {
 
     public Texture getTexture(String path){
 	    return textureManager.getTexture(path);
+    }
+
+    public World getWorld() {
+        return world;
+    }
+
+    public BodyFactory getBodyFactory() {
+        return bodyFactory;
     }
 }

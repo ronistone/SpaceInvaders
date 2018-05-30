@@ -26,7 +26,9 @@ public class ShootService {
             player.setLAST_SHOT(player.getLAST_SHOT() - delta);
         }
         if(Gdx.input.isTouched() && player.getLAST_SHOT() <= 0){
-            shots.add(player.shoot());
+            for(Bullet b: player.shoot()){
+                shots.add(b);
+            }
             player.setLAST_SHOT(1/player.getSHOT_RATE());
         }
     }

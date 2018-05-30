@@ -10,10 +10,10 @@ import java.util.Map;
 
 public class WhiteShip extends Ship {
 
-    public WhiteShip(float X, float Y, SpaceInvaders game, Map<String, Object> args) {
+    public WhiteShip(float X, float Y, SpaceInvaders game) {
         super(X, 0, game);
         this.setHEIGHT(90);
-        this.args = args;
+        this.world = g.getWorld();
         createBody();
     }
 
@@ -22,40 +22,6 @@ public class WhiteShip extends Ship {
         this.setShipTexture(g.getTexture("ships/whiteShip.png"));
     }
 
-    @Override
-    public void move(float delta) {
-        if(movement != null){
-            movement.move(this);
-        }
-    }
 
-    @Override
-    public void destruct() {
-        World world = (World) args.get("world");
-        world.destroyBody(body);
-    }
-
-    @Override
-    public void createBody() {
-        BodyFactory bodyFactory = (BodyFactory) args.get("bodyFactory");
-        World world = (World) args.get("world");
-        this.body = bodyFactory.createSimpleShipBody(this, world);
-    }
-
-    @Override
-    public Bullet shoot() {
-        World world = (World) args.get("world");
-        return new DefaultBullet(getX()+ (getWIDTH()/2),getY()+getHEIGHT(), g, world, this);
-    }
-
-    @Override
-    public void collide(Object a) {
-        if(a instanceof Bullet){
-            Bullet b = (Bullet) a;
-            if(!b.getOwner().equals(this)) {
-                setAlive(false);
-            }
-        }
-    }
 }
 
