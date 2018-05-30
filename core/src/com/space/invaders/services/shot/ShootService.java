@@ -17,6 +17,7 @@ public class ShootService {
             Bullet s = it.next();
             s.update(delta);
             if(!s.isLive(BaseScreen.VIRTUAL_WIDHT, BaseScreen.VIRTUAL_HEIGHT)){
+                s.destruct();
                 it.remove();
             }
         }

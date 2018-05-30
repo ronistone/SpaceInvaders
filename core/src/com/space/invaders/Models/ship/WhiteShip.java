@@ -1,21 +1,19 @@
 package com.space.invaders.Models.ship;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
-import com.badlogic.gdx.utils.compression.lzma.Base;
 import com.space.invaders.Models.shot.DefaultBullet;
 import com.space.invaders.Models.shot.Bullet;
-import com.space.invaders.Views.BaseScreen;
 import com.space.invaders.controllers.SpaceInvaders;
+import com.space.invaders.services.factory.BodyFactory;
+
+import java.util.Map;
 
 public class WhiteShip extends Ship {
 
-    public WhiteShip(float X, float Y, SpaceInvaders game, World world) {
+    public WhiteShip(float X, float Y, SpaceInvaders game, Map<String, Object> args) {
         super(X, 0, game);
         this.setHEIGHT(90);
-        this.setSPEED(0);
-        this.world = world;
+        this.args = args;
         createBody();
     }
 
@@ -32,29 +30,23 @@ public class WhiteShip extends Ship {
     }
 
     @Override
+    public void destruct() {
+        World world = (World) args.get("world");
+        world.destroyBody(body);
+    }
+
+    @Override
     public void createBody() {
-
-        BodyDef bdef = new BodyDef();
-        bdef.position.set(getX()+getWIDTH()/2, getY()+(getHEIGHT()+6)/2);
-        bdef.type = BodyDef.BodyType.DynamicBody;
-        body = this.world.createBody(bdef);
-
-        CircleShape shape = new CircleShape();
-        shape.setRadius(getWIDTH()/2);
-
-        FixtureDef fixtureDef = new FixtureDef();
-        fixtureDef.shape = shape;
-        fixtureDef.isSensor = true;
-
-        Fixture fixture = body.createFixture(fixtureDef);
-        fixture.setUserData("WhiteShip");
-
-        shape.dispose();
+        BodyFactory bodyFactory = (BodyFactory) args.get("bodyFactory");
+        World world = (World) args.get("world");
+        this.body = bodyFactory.createSimpleShipBody(this, world);
     }
 
     @Override
     public Bullet shoot() {
-        return new DefaultBullet(getX()+ (getWIDTH()/2),getY()+getHEIGHT(), g, world);
+        World world = (World) args.get("world");
+        return new DefaultBullet(getX()+ (getWIDTH()/2),getY()+getHEIGHT(), g, world, this);
     }
 
 }
+

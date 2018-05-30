@@ -18,7 +18,11 @@ import com.space.invaders.Models.ship.WhiteShip;
 import com.space.invaders.Models.ship.Ship;
 import com.space.invaders.Models.ship.BlackShip;
 import com.space.invaders.services.ContactListenerCustom;
+import com.space.invaders.services.factory.BodyFactory;
 import com.space.invaders.services.movement.PlayerMovementService;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class GameScreen extends BaseScreen {
 
@@ -33,6 +37,8 @@ public class GameScreen extends BaseScreen {
     private Array<Ship> ships;
     private World world;
     private Box2DDebugRenderer debug;
+    private Map<String, Object> args;
+    private BodyFactory bodyFactory;
 
     private GameScreen(SpaceInvaders g) {
         super(g);
@@ -54,34 +60,36 @@ public class GameScreen extends BaseScreen {
 
     @Override
     public void show() {
-        batch = new SpriteBatch();
 
-        camera = new OrthographicCamera();
-        camera.position.set(VIRTUAL_WIDHT/2,VIRTUAL_HEIGHT/2,0);
-        viewport = new StretchViewport(VIRTUAL_WIDHT, VIRTUAL_HEIGHT, camera);
+        instanciateElements();
 
-        world = new World(new Vector2(0,0), true);
-        world.setContactListener(new ContactListenerCustom());
-        debug = new Box2DDebugRenderer();
+        args.put("world", world);
+        args.put("bodyFactory", bodyFactory);
 
-        background = game.getTexture("background.jpg");
-        player = new WhiteShip(VIRTUAL_WIDHT/2, VIRTUAL_HEIGHT/2, game, world);
+
+        /*
+
+            Criação temporaria de naves, deve-se criar um sistema de fases que fará todo este processo
+
+         */
+
+        player = new WhiteShip(VIRTUAL_WIDHT/2, VIRTUAL_HEIGHT/2, game, args);
         player.setMovement(new PlayerMovementService());
-        //player.createBody();
+
         ships.add(player);
-        Ship a = new BlackShip(100, VIRTUAL_HEIGHT - 100, game, world);
+        Ship a = new BlackShip(100, VIRTUAL_HEIGHT - 100, game, args);
         a.setMovement(new PlayerMovementService());
         ships.add(a);
-        a = new BlackShip(100, VIRTUAL_HEIGHT - 100, game, world);
+        a = new BlackShip(100, VIRTUAL_HEIGHT - 100, game, args);
         a.setMovement(new PlayerMovementService());
         ships.add(a);
-        a = new BlackShip(210, VIRTUAL_HEIGHT - 100, game, world);
+        a = new BlackShip(210, VIRTUAL_HEIGHT - 100, game, args);
         a.setMovement(new PlayerMovementService());
         ships.add(a);
-        a = new BlackShip(320, VIRTUAL_HEIGHT - 100, game, world);
+        a = new BlackShip(320, VIRTUAL_HEIGHT - 100, game, args);
         a.setMovement(new PlayerMovementService());
         ships.add(a);
-        a = new BlackShip(430, VIRTUAL_HEIGHT - 100, game, world);
+        a = new BlackShip(430, VIRTUAL_HEIGHT - 100, game, args);
         a.setMovement(new PlayerMovementService());
         ships.add(a);
     }
@@ -123,4 +131,26 @@ public class GameScreen extends BaseScreen {
     public void resize(int width, int height) {
         viewport.update(width,height);
     }
+
+
+
+    public void instanciateElements(){
+        batch = new SpriteBatch();
+        args = new HashMap<>();
+
+        camera = new OrthographicCamera();
+        camera.position.set(VIRTUAL_WIDHT/2,VIRTUAL_HEIGHT/2,0);
+        viewport = new StretchViewport(VIRTUAL_WIDHT, VIRTUAL_HEIGHT, camera);
+
+
+        bodyFactory = new BodyFactory();
+
+        world = new World(new Vector2(0,0), true);
+        world.setContactListener(new ContactListenerCustom());
+        debug = new Box2DDebugRenderer();
+        bodyFactory = new BodyFactory();
+
+        background = game.getTexture("background.jpg");
+    }
+
 }

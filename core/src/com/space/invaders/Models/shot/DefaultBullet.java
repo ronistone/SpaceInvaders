@@ -4,14 +4,16 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.physics.box2d.*;
+import com.space.invaders.Models.ship.Ship;
 import com.space.invaders.controllers.SpaceInvaders;
+import com.space.invaders.services.InformationBody;
 
 public class DefaultBullet extends Bullet {
 
     private volatile static Texture shotTexture;
 
-    public DefaultBullet(float x, float y, SpaceInvaders game, World world){
-        super(x,y,game, world);
+    public DefaultBullet(float x, float y, SpaceInvaders game, World world, Ship ship){
+        super(x,y,game, world, ship);
     }
 
     private void loadTexture() {
@@ -49,9 +51,14 @@ public class DefaultBullet extends Bullet {
         fixtureDef.isSensor = true;
 
         Fixture fixture = body.createFixture(fixtureDef);
-        fixture.setUserData("DefaultBullet");
+        fixture.setUserData(InformationBody.createBulletInformation(this, owner));
         shape.dispose();
         body.setLinearVelocity(0, SPEED);
+    }
+
+    @Override
+    public void destruct() {
+        world.destroyBody(body);
     }
 
 

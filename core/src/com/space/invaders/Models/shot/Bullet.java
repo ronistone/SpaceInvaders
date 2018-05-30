@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
+import com.space.invaders.Models.ship.Ship;
 import com.space.invaders.controllers.SpaceInvaders;
 
 public abstract class Bullet extends Sprite {
@@ -15,24 +16,29 @@ public abstract class Bullet extends Sprite {
     protected float SPEED = 3000;
     public Body body;
     protected World world;
+    protected Ship owner;
+    protected boolean isAlive;
 
     protected SpaceInvaders g;
 
-    public Bullet(float x, float y, SpaceInvaders game, World world){
+    public Bullet(float x, float y, SpaceInvaders game, World world, Ship ship){
         setPosition(x,y);
         g = game;
         this.world = world;
+        this.owner = ship;
+        isAlive = true;
         createBody();
     }
 
     public abstract void render(SpriteBatch batch);
     public abstract void update(float delta);
     public abstract void createBody();
+    public abstract void destruct();
 
     public boolean isLive(float widht, float height){
         if(getX() < 0 || getX() > widht) return false;
         if(getY() < 0 || getY() > height) return false;
-        return true;
+        return isAlive;
     }
 
     public float getSHOT_WIDHT() {
@@ -59,4 +65,11 @@ public abstract class Bullet extends Sprite {
         this.SPEED = SPEED;
     }
 
+    public boolean isAlive() {
+        return isAlive;
+    }
+
+    public void setAlive(boolean alive) {
+        isAlive = alive;
+    }
 }

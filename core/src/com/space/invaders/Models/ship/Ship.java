@@ -9,7 +9,9 @@ import com.space.invaders.Models.shot.Bullet;
 import com.space.invaders.controllers.SpaceInvaders;
 import com.space.invaders.services.movement.MovementService;
 
-public abstract class Ship extends Sprite {
+import java.util.Map;
+
+public abstract class Ship {
 
     private Texture shipTexture;
     private float WIDTH = 100;
@@ -19,14 +21,19 @@ public abstract class Ship extends Sprite {
     private float SHOT_RATE = 5;
     private float LAST_SHOT;
     public Body body;
-    protected World world;
+    protected Map<String, Object> args;
+    protected boolean isAlive;
+    protected float x;
+    protected float y;
 
     protected SpaceInvaders g;
     protected MovementService movement;
 
     public Ship(float x, float y, SpaceInvaders game){
-        setPosition(x,y);
+        setX(x);
+        setY(y);
         g = game;
+        isAlive = true;
         loadTexture();
     }
 
@@ -39,6 +46,7 @@ public abstract class Ship extends Sprite {
 
     public abstract void loadTexture();
     public abstract void move(float delta);
+    public abstract void destruct();
 
     public abstract void createBody();
 
@@ -126,6 +134,30 @@ public abstract class Ship extends Sprite {
 
     public void setMovement(MovementService movement) {
         this.movement = movement;
+    }
+
+    public float getX() {
+        return x;
+    }
+
+    public void setX(float x) {
+        this.x = x;
+    }
+
+    public float getY() {
+        return y;
+    }
+
+    public void setY(float y) {
+        this.y = y;
+    }
+
+    public boolean isAlive() {
+        return isAlive;
+    }
+
+    public void setAlive(boolean alive) {
+        isAlive = alive;
     }
 }
 
