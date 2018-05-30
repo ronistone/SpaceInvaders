@@ -6,10 +6,11 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
+import com.space.invaders.Models.Collider;
 import com.space.invaders.Models.ship.Ship;
 import com.space.invaders.controllers.SpaceInvaders;
 
-public abstract class Bullet extends Sprite {
+public abstract class Bullet implements Collider{
 
     protected float SHOT_WIDHT = 5;
     protected float SHOT_HEIGHT = 18;
@@ -18,6 +19,8 @@ public abstract class Bullet extends Sprite {
     protected World world;
     protected Ship owner;
     protected boolean isAlive;
+    protected float x;
+    protected float y;
 
     protected SpaceInvaders g;
 
@@ -28,6 +31,11 @@ public abstract class Bullet extends Sprite {
         this.owner = ship;
         isAlive = true;
         createBody();
+    }
+
+    private void setPosition(float x, float y) {
+        this.x = x;
+        this.y = y;
     }
 
     public abstract void render(SpriteBatch batch);
@@ -71,5 +79,29 @@ public abstract class Bullet extends Sprite {
 
     public void setAlive(boolean alive) {
         isAlive = alive;
+    }
+
+    public float getX() {
+        return x;
+    }
+
+    public void setX(float x) {
+        this.x = x;
+    }
+
+    public float getY() {
+        return y;
+    }
+
+    public void setY(float y) {
+        this.y = y;
+    }
+
+    public Ship getOwner() {
+        return owner;
+    }
+
+    public void setOwner(Ship owner) {
+        this.owner = owner;
     }
 }

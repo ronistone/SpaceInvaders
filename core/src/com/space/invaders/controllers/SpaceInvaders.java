@@ -8,7 +8,7 @@ import com.space.invaders.Models.ship.Ship;
 import com.space.invaders.Models.shot.Bullet;
 import com.space.invaders.Views.BaseScreen;
 import com.space.invaders.Views.GameScreen;
-import com.space.invaders.Views.MainMenu;
+import com.space.invaders.Views.MainMenuScreen;
 import com.space.invaders.services.AssetsService;
 import com.space.invaders.services.shot.ShootService;
 
@@ -25,7 +25,7 @@ public class SpaceInvaders extends Game {
 	    textureManager = AssetsService.getInstance();
 	    shootService = new ShootService();
 	    loadScreens();
-        changeScreen(MainMenu.class);
+        changeScreen(MainMenuScreen.class);
 	}
 
 	@Override
@@ -49,7 +49,7 @@ public class SpaceInvaders extends Game {
 
 	private void loadScreens(){
 	    screens.put(GameScreen.class, GameScreen.getInstance(this));
-	    screens.put(MainMenu.class, MainMenu.getInstance(this));
+	    screens.put(MainMenuScreen.class, MainMenuScreen.getInstance(this));
     }
 
 

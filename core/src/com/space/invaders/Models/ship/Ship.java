@@ -5,13 +5,14 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
+import com.space.invaders.Models.Collider;
 import com.space.invaders.Models.shot.Bullet;
 import com.space.invaders.controllers.SpaceInvaders;
 import com.space.invaders.services.movement.MovementService;
 
 import java.util.Map;
 
-public abstract class Ship {
+public abstract class Ship implements Collider  {
 
     private Texture shipTexture;
     private float WIDTH = 100;

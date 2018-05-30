@@ -2,7 +2,6 @@ package com.space.invaders.services.factory;
 
 import com.badlogic.gdx.physics.box2d.*;
 import com.space.invaders.Models.ship.Ship;
-import com.space.invaders.services.InformationBody;
 
 public class BodyFactory {
 
@@ -23,7 +22,7 @@ public class BodyFactory {
         fixtureDef.isSensor = true;
 
         Fixture fixture = body.createFixture(fixtureDef);
-        fixture.setUserData(InformationBody.createShipInformation(ship));
+        fixture.setUserData(ship);
 
         shape.dispose();
 

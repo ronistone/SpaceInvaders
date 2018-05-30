@@ -2,11 +2,9 @@ package com.space.invaders.Models.shot;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.physics.box2d.*;
 import com.space.invaders.Models.ship.Ship;
 import com.space.invaders.controllers.SpaceInvaders;
-import com.space.invaders.services.InformationBody;
 
 public class DefaultBullet extends Bullet {
 
@@ -51,7 +49,7 @@ public class DefaultBullet extends Bullet {
         fixtureDef.isSensor = true;
 
         Fixture fixture = body.createFixture(fixtureDef);
-        fixture.setUserData(InformationBody.createBulletInformation(this, owner));
+        fixture.setUserData(this);
         shape.dispose();
         body.setLinearVelocity(0, SPEED);
     }
@@ -62,4 +60,8 @@ public class DefaultBullet extends Bullet {
     }
 
 
+    @Override
+    public void collide(Object a) {
+        // Nothing to do
+    }
 }

@@ -44,4 +44,14 @@ public class BlackShip extends Ship {
     public Bullet shoot() {
         return null;
     }
+
+    @Override
+    public void collide(Object a) {
+        if(a instanceof Bullet){
+            Bullet b = (Bullet) a;
+            if(!b.getOwner().equals(this)) {
+                setAlive(false);
+            }
+        }
+    }
 }

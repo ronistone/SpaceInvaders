@@ -48,5 +48,14 @@ public class WhiteShip extends Ship {
         return new DefaultBullet(getX()+ (getWIDTH()/2),getY()+getHEIGHT(), g, world, this);
     }
 
+    @Override
+    public void collide(Object a) {
+        if(a instanceof Bullet){
+            Bullet b = (Bullet) a;
+            if(!b.getOwner().equals(this)) {
+                setAlive(false);
+            }
+        }
+    }
 }
 
