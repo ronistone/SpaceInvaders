@@ -12,6 +12,7 @@ public class BodyFactory {
         BodyDef bdef = new BodyDef();
         bdef.position.set(ship.getX()+ship.getWIDTH()/2, ship.getY()+(ship.getHEIGHT()+6)/2);
         bdef.type = BodyDef.BodyType.DynamicBody;
+        bdef.linearDamping = 5;
         Body body = world.createBody(bdef);
 
         CircleShape shape = new CircleShape();

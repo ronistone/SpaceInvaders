@@ -21,6 +21,7 @@ import com.space.invaders.Models.ship.Ship;
 import com.space.invaders.Models.ship.BlackShip;
 import com.space.invaders.services.ContactListenerCustom;
 import com.space.invaders.services.factory.BodyFactory;
+import com.space.invaders.services.movement.FoolMovimentService;
 import com.space.invaders.services.movement.PlayerMovementService;
 
 import java.util.HashMap;
@@ -79,27 +80,28 @@ public class GameScreen extends BaseScreen {
         Ship a = new BlackShip(
                 BaseScreen.convertToPPM(0),
                 VIRTUAL_HEIGHT - BaseScreen.convertToPPM(200), game);
-        a.setMovement(new PlayerMovementService());
+        a.setMovement(new FoolMovimentService());
+
         ships.add(a);
         a = new BlackShip(
                 BaseScreen.convertToPPM(100),
                 VIRTUAL_HEIGHT - BaseScreen.convertToPPM(200), game);
-        a.setMovement(new PlayerMovementService());
+        a.setMovement(new FoolMovimentService());
         ships.add(a);
         a = new BlackShip(
                 BaseScreen.convertToPPM(210),
                 VIRTUAL_HEIGHT - BaseScreen.convertToPPM(200), game);
-        a.setMovement(new PlayerMovementService());
+        a.setMovement(new FoolMovimentService());
         ships.add(a);
         a = new BlackShip(
                 BaseScreen.convertToPPM(320),
                 VIRTUAL_HEIGHT - BaseScreen.convertToPPM(200), game);
-        a.setMovement(new PlayerMovementService());
+        a.setMovement(new FoolMovimentService());
         ships.add(a);
         a = new BlackShip(
                 BaseScreen.convertToPPM(430),
                 VIRTUAL_HEIGHT - BaseScreen.convertToPPM(200), game);
-        a.setMovement(new PlayerMovementService());
+        a.setMovement(new FoolMovimentService());
         ships.add(a);
     }
 

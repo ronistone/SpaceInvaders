@@ -80,23 +80,6 @@ public abstract class Ship implements Collider  {
         }
     }
 
-
-    private void moveForward(){
-        if(getY() + HEIGHT> 0) {
-            setY(getY() - SPEED);
-        }
-    }
-    public void moveLeft(float delta, float scale, float leftLimit){
-        if(getX() > leftLimit) {
-            setX(getX() - (delta * scale * LATERAL_SPEED));
-        }
-    }
-    public void moveRight(float delta, float scale, float rightLimit){
-        if(getX() + WIDTH < rightLimit) {
-            setX(getX() + (delta * scale * LATERAL_SPEED));
-        }
-    }
-
     public void dispose(){
         shipTexture.dispose();
     }
