@@ -9,12 +9,13 @@ import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
 import com.space.invaders.Models.Collider;
 import com.space.invaders.Models.ship.Ship;
+import com.space.invaders.Views.BaseScreen;
 import com.space.invaders.controllers.SpaceInvaders;
 
 public abstract class Bullet implements Collider{
 
-    protected float SHOT_WIDHT = 5;
-    protected float SHOT_HEIGHT = 18;
+    protected float SHOT_WIDHT = BaseScreen.convertToPPM(5);
+    protected float SHOT_HEIGHT = BaseScreen.convertToPPM(18);
     public Body body;
     protected World world;
     protected Ship owner;

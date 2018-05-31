@@ -57,12 +57,18 @@ public class DefaultBullet extends Bullet {
 
     @Override
     public void destruct() {
-        world.destroyBody(body);
+        isAlive = false;
+        if(body!=null) {
+            world.destroyBody(body);
+            body = null;
+        }
     }
 
 
     @Override
     public void collide(Object a) {
-        // Nothing to do
+        if(a instanceof Ship && owner != a){
+            isAlive = false;
+        }
     }
 }

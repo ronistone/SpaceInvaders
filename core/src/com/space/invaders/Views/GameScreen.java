@@ -71,24 +71,34 @@ public class GameScreen extends BaseScreen {
 
          */
 
-        player = new WhiteShip(VIRTUAL_WIDHT/2, VIRTUAL_HEIGHT/2, game);
+        player = new WhiteShip(VIRTUAL_WIDHT/2, 0, game);
         player.setMovement(new PlayerMovementService());
         player.setWeapon(new ThreeShot(player,world));
 
         ships.add(player);
-        Ship a = new BlackShip(100, VIRTUAL_HEIGHT - 100, game);
+        Ship a = new BlackShip(
+                BaseScreen.convertToPPM(0),
+                VIRTUAL_HEIGHT - BaseScreen.convertToPPM(200), game);
         a.setMovement(new PlayerMovementService());
         ships.add(a);
-        a = new BlackShip(100, VIRTUAL_HEIGHT - 100, game);
+        a = new BlackShip(
+                BaseScreen.convertToPPM(100),
+                VIRTUAL_HEIGHT - BaseScreen.convertToPPM(200), game);
         a.setMovement(new PlayerMovementService());
         ships.add(a);
-        a = new BlackShip(210, VIRTUAL_HEIGHT - 100, game);
+        a = new BlackShip(
+                BaseScreen.convertToPPM(210),
+                VIRTUAL_HEIGHT - BaseScreen.convertToPPM(200), game);
         a.setMovement(new PlayerMovementService());
         ships.add(a);
-        a = new BlackShip(320, VIRTUAL_HEIGHT - 100, game);
+        a = new BlackShip(
+                BaseScreen.convertToPPM(320),
+                VIRTUAL_HEIGHT - BaseScreen.convertToPPM(200), game);
         a.setMovement(new PlayerMovementService());
         ships.add(a);
-        a = new BlackShip(430, VIRTUAL_HEIGHT - 100, game);
+        a = new BlackShip(
+                BaseScreen.convertToPPM(430),
+                VIRTUAL_HEIGHT - BaseScreen.convertToPPM(200), game);
         a.setMovement(new PlayerMovementService());
         ships.add(a);
     }

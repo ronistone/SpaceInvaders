@@ -8,6 +8,7 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.space.invaders.Models.Collider;
 import com.space.invaders.Models.shot.Bullet;
 import com.space.invaders.Models.weapon.Weapon;
+import com.space.invaders.Views.BaseScreen;
 import com.space.invaders.controllers.SpaceInvaders;
 import com.space.invaders.services.factory.BodyFactory;
 import com.space.invaders.services.movement.MovementService;
@@ -18,10 +19,10 @@ import java.util.Map;
 public abstract class Ship implements Collider  {
 
     private Texture shipTexture;
-    private float WIDTH = 100;
-    private float HEIGHT = -90;
-    private float LATERAL_SPEED = 1000;
-    private float SPEED = 6;
+    private float WIDTH = BaseScreen.convertToPPM(100);
+    private float HEIGHT = BaseScreen.convertToPPM(-90);
+    private float LATERAL_SPEED = BaseScreen.convertToPPM(100);
+    private float SPEED = BaseScreen.convertToPPM(6);
     private float SHOT_RATE = 5;
     private float LAST_SHOT;
     public Body body;
