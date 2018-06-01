@@ -1,5 +1,6 @@
 package com.space.invaders.Models.shot;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
@@ -15,9 +16,10 @@ public class DefaultBullet extends Bullet {
         super(x,y, v, game, world, ship);
 
         setDamage(30);
+        loadTexture();
     }
 
-    private void loadTexture() {
+    public void loadTexture() {
         if(shotTexture == null){
             synchronized (DefaultBullet.class){
                 if(shotTexture == null){
@@ -28,7 +30,7 @@ public class DefaultBullet extends Bullet {
     }
 
     public void render(SpriteBatch batch){
-        loadTexture();
+        update(Gdx.graphics.getDeltaTime());
         batch.draw(shotTexture, getX(), getY(), SHOT_WIDHT, SHOT_HEIGHT);
     }
 
@@ -64,6 +66,22 @@ public class DefaultBullet extends Bullet {
             world.destroyBody(body);
             body = null;
         }
+    }
+
+    @Override
+    public float getWidht() {
+        return this.SHOT_WIDHT;
+    }
+
+    @Override
+    public float getHeight() {
+        return this.SHOT_HEIGHT;
+    }
+
+    @Override
+    public void setSize(float widht, float height) {
+        SHOT_WIDHT = widht;
+        SHOT_HEIGHT = height;
     }
 
 

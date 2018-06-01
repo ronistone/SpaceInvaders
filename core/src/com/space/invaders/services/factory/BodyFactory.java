@@ -1,6 +1,7 @@
 package com.space.invaders.services.factory;
 
 import com.badlogic.gdx.physics.box2d.*;
+import com.space.invaders.Models.item.Item;
 import com.space.invaders.Models.ship.Ship;
 import com.space.invaders.Util.MathUtil;
 
@@ -36,6 +37,25 @@ public class BodyFactory {
         return body;
     }
 
+    public Body createItemBody(Item item, World world){
 
+        BodyDef bdef = new BodyDef();
+        bdef.position.set(item.getX()+item.getWidht()/2, item.getY()+(item.getHeight()+6)/2);
+        bdef.type = BodyDef.BodyType.DynamicBody;
+        Body body = world.createBody(bdef);
 
+        CircleShape shape = new CircleShape();
+        shape.setRadius(item.getWidht()/2);
+
+        FixtureDef fixtureDef = new FixtureDef();
+        fixtureDef.shape = shape;
+        fixtureDef.isSensor = true;
+
+        Fixture fixture = body.createFixture(fixtureDef);
+        fixture.setUserData(item);
+
+        shape.dispose();
+
+        return body;
+    }
 }

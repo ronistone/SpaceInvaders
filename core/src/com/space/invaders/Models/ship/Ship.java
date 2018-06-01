@@ -1,5 +1,6 @@
 package com.space.invaders.Models.ship;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
@@ -8,6 +9,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
 import com.space.invaders.Models.Collider;
+import com.space.invaders.Models.Renderable;
 import com.space.invaders.Models.health.Health;
 import com.space.invaders.Models.shot.Bullet;
 import com.space.invaders.Models.weapon.Weapon;
@@ -20,7 +22,7 @@ import com.space.invaders.services.movement.MovementService;
 import java.util.List;
 import java.util.Map;
 
-public abstract class Ship implements Collider  {
+public abstract class Ship implements Collider, Renderable {
 
     private final boolean isPlayer;
     private Texture shipTexture;
@@ -71,6 +73,7 @@ public abstract class Ship implements Collider  {
     }
 
     public void render(SpriteBatch sb){
+        move(Gdx.graphics.getDeltaTime());
         setX(body.getPosition().x-getWIDTH()/2);
         setY(body.getPosition().y-getHEIGHT()/2);
         sprite.draw(sb);
@@ -108,6 +111,7 @@ public abstract class Ship implements Collider  {
     }
 
     public void destruct() {
+        health.destruct();
         world.destroyBody(body);
     }
 
@@ -117,6 +121,20 @@ public abstract class Ship implements Collider  {
         }
     }
 
+    @Override
+    public float getWidht() {
+        return sprite.getWidth();
+    }
+
+    @Override
+    public float getHeight() {
+        return sprite.getHeight();
+    }
+
+    @Override
+    public void setSize(float widht, float height) {
+        sprite.setSize(widht,height);
+    }
 
     public void dispose(){
         shipTexture.dispose();
@@ -264,6 +282,9 @@ public abstract class Ship implements Collider  {
 
     public void setCurrentLife(float currentLife) {
         this.currentLife = currentLife;
+        if(this.currentLife > this.LIFE){
+            this.currentLife = LIFE;
+        }
     }
 
     public Vector2 getHealthBarPosition() {

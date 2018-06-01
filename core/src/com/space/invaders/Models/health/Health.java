@@ -47,4 +47,7 @@ public class Health {
     }
 
 
+    public void destruct() {
+        render.dispose();
+    }
 }

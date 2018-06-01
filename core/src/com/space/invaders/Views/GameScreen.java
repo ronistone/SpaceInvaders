@@ -12,7 +12,9 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import com.space.invaders.Models.Renderable;
 import com.space.invaders.Models.health.Health;
+import com.space.invaders.Models.item.Heal;
 import com.space.invaders.Models.shot.Bullet;
 import com.space.invaders.Models.weapon.SimpleShot;
 import com.space.invaders.Models.weapon.ThreeShot;
@@ -39,6 +41,7 @@ public class GameScreen extends BaseScreen {
     private Viewport viewport;
     private Array<Bullet> shots;
     private Array<Ship> ships;
+    private Array<Renderable> elements;
     private World world;
     private Box2DDebugRenderer debug;
 
@@ -47,6 +50,7 @@ public class GameScreen extends BaseScreen {
         super(g);
         shots = new Array<>();
         ships = new Array<>();
+        elements = new Array<>();
     }
 
     public static GameScreen getInstance(SpaceInvaders g){
@@ -79,32 +83,42 @@ public class GameScreen extends BaseScreen {
         player.setWeapon(new ThreeShot(player,world));
 
         ships.add(player);
+        elements.add(player);
         Ship a = new BlackShip(
                 BaseScreen.convertToPPM(0),
                 VIRTUAL_HEIGHT - BaseScreen.convertToPPM(200), game);
         a.setMovement(new FoolMovimentService());
 
         ships.add(a);
+        elements.add(a);
         a = new BlackShip(
                 BaseScreen.convertToPPM(100),
                 VIRTUAL_HEIGHT - BaseScreen.convertToPPM(200), game);
         a.setMovement(new FoolMovimentService());
         ships.add(a);
+        elements.add(a);
         a = new BlackShip(
                 BaseScreen.convertToPPM(210),
                 VIRTUAL_HEIGHT - BaseScreen.convertToPPM(200), game);
         a.setMovement(new FoolMovimentService());
         ships.add(a);
+        elements.add(a);
         a = new BlackShip(
                 BaseScreen.convertToPPM(320),
                 VIRTUAL_HEIGHT - BaseScreen.convertToPPM(200), game);
         a.setMovement(new FoolMovimentService());
         ships.add(a);
+        elements.add(a);
         a = new BlackShip(
                 BaseScreen.convertToPPM(430),
                 VIRTUAL_HEIGHT - BaseScreen.convertToPPM(200), game);
         a.setMovement(new FoolMovimentService());
         ships.add(a);
+        elements.add(a);
+
+        elements.add(new Heal(BaseScreen.VIRTUAL_WIDHT/2,BaseScreen.convertToPPM(100), game));
+
+        player.setCurrentLife(10);
     }
 
     @Override
@@ -112,7 +126,7 @@ public class GameScreen extends BaseScreen {
 
         world.step(delta, 6, 2);
         camera.update();
-        game.update(delta, player, ships, shots);
+        game.update(delta, player, elements);
 
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         batch.setProjectionMatrix(camera.combined);
@@ -120,13 +134,9 @@ public class GameScreen extends BaseScreen {
         batch.begin();
 
         batch.draw(background,0,0, VIRTUAL_WIDHT, VIRTUAL_HEIGHT);
-        for(Ship s: ships){
-            s.render(batch);
+        for(Renderable r: elements){
+            r.render(batch);
         }
-        for(Bullet s: shots){
-            s.render(batch);
-        }
-
         batch.end();
 
         for(Ship s: ships){

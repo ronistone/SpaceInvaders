@@ -8,11 +8,12 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
 import com.space.invaders.Models.Collider;
+import com.space.invaders.Models.Renderable;
 import com.space.invaders.Models.ship.Ship;
 import com.space.invaders.Views.BaseScreen;
 import com.space.invaders.controllers.SpaceInvaders;
 
-public abstract class Bullet implements Collider{
+public abstract class Bullet implements Collider, Renderable {
 
     protected float SHOT_WIDHT = BaseScreen.convertToPPM(5);
     protected float SHOT_HEIGHT = BaseScreen.convertToPPM(18);

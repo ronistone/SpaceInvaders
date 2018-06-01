@@ -17,7 +17,7 @@ public class AssetsService {
 
     public Texture getTexture(String path){
         if(textures.get(path) == null){
-            textures.put(path,new Texture(path));
+            textures.put(path,new Texture(Gdx.files.internal(path)));
         }
         return textures.get(path);
     }

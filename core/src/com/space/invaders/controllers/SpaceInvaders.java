@@ -6,6 +6,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.ObjectMap;
+import com.space.invaders.Models.Renderable;
 import com.space.invaders.Models.ship.Ship;
 import com.space.invaders.Models.shot.Bullet;
 import com.space.invaders.Views.BaseScreen;
@@ -62,16 +63,14 @@ public class SpaceInvaders extends Game {
     }
 
 
-    public void update(float delta, Ship player, Array<Ship> ships, Array<Bullet> shots){
-        shootService.shoot(player, shots, delta);
+    public void update(float delta, Ship player, Array<Renderable> elements){
+        shootService.shoot(player, elements, delta);
 
-        for(Ship s: ships){
-            if(!s.isAlive()){
-                s.destruct();
-                ships.removeValue(s, true);
-                continue;
+        for(Renderable r: elements){
+            if(!r.isAlive()){
+                r.destruct();
+                elements.removeValue(r,true);
             }
-	        s.move(delta);
         }
     }
 
