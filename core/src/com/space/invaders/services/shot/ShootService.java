@@ -10,11 +10,14 @@ import java.util.Iterator;
 
 public class ShootService {
 
+    private Iterator<Bullet> it;
+    private Bullet s;
+
     public void shoot(Ship player, Array<Bullet> shots, float delta){
 
-        Iterator<Bullet> it = shots.iterator();
+        it = shots.iterator();
         while(it.hasNext()){
-            Bullet s = it.next();
+            s = it.next();
             s.update(delta);
             if(!s.isLive(BaseScreen.VIRTUAL_WIDHT, BaseScreen.VIRTUAL_HEIGHT)){
                 s.destruct();

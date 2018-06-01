@@ -36,7 +36,7 @@ public class FoolMovimentService extends MovementService {
     }
 
     private float getXInScreen(){
-        return random.nextFloat() * BaseScreen.VIRTUAL_WIDHT;
+        return (float) ((float) - BaseScreen.VIRTUAL_WIDHT/4 + (random.nextFloat() * BaseScreen.VIRTUAL_WIDHT * 1.5));
     }
 
     private float getYInScreen(){

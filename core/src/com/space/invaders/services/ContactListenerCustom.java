@@ -9,11 +9,14 @@ import com.space.invaders.Models.ship.Ship;
 
 public class ContactListenerCustom implements ContactListener {
 
+    private Collider a;
+    private Collider b;
+
 
     @Override
     public void beginContact(Contact contact) {
-        Collider a = (Collider) contact.getFixtureA().getUserData();
-        Collider b = (Collider) contact.getFixtureB().getUserData();
+        a = (Collider) contact.getFixtureA().getUserData();
+        b = (Collider) contact.getFixtureB().getUserData();
 
         a.collide(b);
         b.collide(a);

@@ -2,6 +2,7 @@ package com.space.invaders.services.factory;
 
 import com.badlogic.gdx.physics.box2d.*;
 import com.space.invaders.Models.ship.Ship;
+import com.space.invaders.Util.MathUtil;
 
 public class BodyFactory {
 
@@ -27,7 +28,11 @@ public class BodyFactory {
 
         shape.dispose();
 
-
+        if(ship.isPlayer()) {
+            body.setTransform(body.getPosition(), MathUtil.toRadians(90));
+        }else{
+            body.setTransform(body.getPosition(), MathUtil.toRadians(-90));
+        }
         return body;
     }
 

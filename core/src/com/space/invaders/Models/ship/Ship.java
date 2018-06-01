@@ -1,13 +1,17 @@
 package com.space.invaders.Models.ship;
 
+import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
 import com.space.invaders.Models.Collider;
+import com.space.invaders.Models.health.Health;
 import com.space.invaders.Models.shot.Bullet;
 import com.space.invaders.Models.weapon.Weapon;
+import com.space.invaders.Util.MathUtil;
 import com.space.invaders.Views.BaseScreen;
 import com.space.invaders.controllers.SpaceInvaders;
 import com.space.invaders.services.factory.BodyFactory;
@@ -18,36 +22,66 @@ import java.util.Map;
 
 public abstract class Ship implements Collider  {
 
+    private final boolean isPlayer;
     private Texture shipTexture;
+    private Sprite sprite;
     private float WIDTH = BaseScreen.convertToPPM(100);
-    private float HEIGHT = BaseScreen.convertToPPM(-90);
+    private float HEIGHT = BaseScreen.convertToPPM(90);
     private float LATERAL_SPEED = BaseScreen.convertToPPM(100);
     private float SPEED = BaseScreen.convertToPPM(6);
     private float SHOT_RATE = 5;
     private float LAST_SHOT;
+    private float LIFE = 100;
     public Body body;
     protected World world;
+
     protected boolean isAlive;
     protected float x;
     protected float y;
+    protected float currentLife;
+
+    private Vector2 healthBarPosition;
 
     protected SpaceInvaders g;
+
+    // Elements
     protected MovementService movement;
     protected Weapon weapon;
+    protected Health health;
 
-    public Ship(float x, float y, SpaceInvaders game){
-        setX(x);
-        setY(y);
+    public Ship(float x, float y, SpaceInvaders game, boolean isPlayer){
         g = game;
         isAlive = true;
+        this.isPlayer = isPlayer;
         loadTexture();
+        sprite = new Sprite(shipTexture);
+        sprite.setSize(WIDTH,HEIGHT);
+        health = new Health(BaseScreen.convertToPPM(100), BaseScreen.convertToPPM(15), LIFE);
+        healthBarPosition = new Vector2();
+        currentLife = LIFE;
+
+        setX(x);
+        setY(y);
+        this.world = g.getWorld();
+        createBody();
+
+        if(!isPlayer){
+            sprite.flip(false,true);
+        }
     }
 
     public void render(SpriteBatch sb){
-//            moveForward();
         setX(body.getPosition().x-getWIDTH()/2);
         setY(body.getPosition().y-getHEIGHT()/2);
-        sb.draw(shipTexture,getX(),getY(),WIDTH,HEIGHT);
+        sprite.draw(sb);
+    }
+
+    public void updateHealthBar(Camera camera){
+        health.updateLife(currentLife);
+        healthBarPosition.set(body.getPosition().x,body.getPosition().y);
+        healthBarPosition.x -= (getWIDTH()/2);
+        healthBarPosition.y -= 2*(getHEIGHT()/3);
+        health.draw(healthBarPosition, camera);
     }
 
     public abstract void loadTexture();
@@ -61,7 +95,10 @@ public abstract class Ship implements Collider  {
         if(a instanceof Bullet){
             Bullet b = (Bullet) a;
             if(!b.getOwner().equals(this)) {
-                setAlive(false);
+                currentLife -= b.getDamage();
+                if(currentLife <= MathUtil.LIFE_EPS){
+                    setAlive(false);
+                }
             }
         }
     }
@@ -79,6 +116,7 @@ public abstract class Ship implements Collider  {
             movement.move(this);
         }
     }
+
 
     public void dispose(){
         shipTexture.dispose();
@@ -149,19 +187,19 @@ public abstract class Ship implements Collider  {
     }
 
     public float getX() {
-        return x;
+        return sprite.getX();
     }
 
     public void setX(float x) {
-        this.x = x;
+        sprite.setX(x);
     }
 
     public float getY() {
-        return y;
+        return sprite.getY();
     }
 
     public void setY(float y) {
-        this.y = y;
+        sprite.setY(y);
     }
 
     public boolean isAlive() {
@@ -182,6 +220,74 @@ public abstract class Ship implements Collider  {
 
     public SpaceInvaders getGame() {
         return g;
+    }
+
+    public boolean isPlayer() {
+        return isPlayer;
+    }
+
+    public Sprite getSprite() {
+        return sprite;
+    }
+
+    public void setSprite(Sprite sprite) {
+        this.sprite = sprite;
+    }
+
+    public float getLIFE() {
+        return LIFE;
+    }
+
+    public void setLIFE(float LIFE) {
+        this.LIFE = LIFE;
+    }
+
+    public Body getBody() {
+        return body;
+    }
+
+    public void setBody(Body body) {
+        this.body = body;
+    }
+
+    public World getWorld() {
+        return world;
+    }
+
+    public void setWorld(World world) {
+        this.world = world;
+    }
+
+    public float getCurrentLife() {
+        return currentLife;
+    }
+
+    public void setCurrentLife(float currentLife) {
+        this.currentLife = currentLife;
+    }
+
+    public Vector2 getHealthBarPosition() {
+        return healthBarPosition;
+    }
+
+    public void setHealthBarPosition(Vector2 healthBarPosition) {
+        this.healthBarPosition = healthBarPosition;
+    }
+
+    public SpaceInvaders getG() {
+        return g;
+    }
+
+    public void setG(SpaceInvaders g) {
+        this.g = g;
+    }
+
+    public Health getHealth() {
+        return health;
+    }
+
+    public void setHealth(Health health) {
+        this.health = health;
     }
 }
 

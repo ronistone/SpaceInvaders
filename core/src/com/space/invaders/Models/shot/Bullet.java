@@ -23,6 +23,7 @@ public abstract class Bullet implements Collider{
     protected float x;
     protected float y;
     protected Vector2 direction;
+    protected float damage = 0;
 
     protected SpaceInvaders g;
 
@@ -98,5 +99,13 @@ public abstract class Bullet implements Collider{
 
     public void setOwner(Ship owner) {
         this.owner = owner;
+    }
+
+    public float getDamage() {
+        return damage;
+    }
+
+    public void setDamage(float damage) {
+        this.damage = damage;
     }
 }

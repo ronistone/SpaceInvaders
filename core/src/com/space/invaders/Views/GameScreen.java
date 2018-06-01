@@ -12,6 +12,7 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import com.space.invaders.Models.health.Health;
 import com.space.invaders.Models.shot.Bullet;
 import com.space.invaders.Models.weapon.SimpleShot;
 import com.space.invaders.Models.weapon.ThreeShot;
@@ -40,6 +41,7 @@ public class GameScreen extends BaseScreen {
     private Array<Ship> ships;
     private World world;
     private Box2DDebugRenderer debug;
+
 
     private GameScreen(SpaceInvaders g) {
         super(g);
@@ -72,7 +74,7 @@ public class GameScreen extends BaseScreen {
 
          */
 
-        player = new WhiteShip(VIRTUAL_WIDHT/2, 0, game);
+        player = new BlackShip(VIRTUAL_WIDHT/2, 0, game, true);
         player.setMovement(new PlayerMovementService());
         player.setWeapon(new ThreeShot(player,world));
 
@@ -126,6 +128,11 @@ public class GameScreen extends BaseScreen {
         }
 
         batch.end();
+
+        for(Ship s: ships){
+            s.updateHealthBar(camera);
+        }
+
         debug.render(world, camera.combined);
     }
 

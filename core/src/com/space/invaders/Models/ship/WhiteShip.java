@@ -12,10 +12,11 @@ import java.util.Map;
 public class WhiteShip extends Ship {
 
     public WhiteShip(float X, float Y, SpaceInvaders game) {
-        super(X, Y, game);
-        this.setHEIGHT(BaseScreen.convertToPPM(90));
-        this.world = g.getWorld();
-        createBody();
+        this(X,Y,game,false);
+    }
+
+    public WhiteShip(float X, float Y, SpaceInvaders game, boolean isPlayer) {
+        super(X, Y, game, isPlayer);
     }
 
     @Override

@@ -13,6 +13,8 @@ public class DefaultBullet extends Bullet {
 
     public DefaultBullet(float x, float y, Vector2 v, SpaceInvaders game, World world, Ship ship){
         super(x,y, v, game, world, ship);
+
+        setDamage(30);
     }
 
     private void loadTexture() {
