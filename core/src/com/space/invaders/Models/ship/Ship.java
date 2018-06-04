@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
@@ -64,7 +65,7 @@ public abstract class Ship implements Collider, Renderable {
         loadTexture();
         sprite = new Sprite(shipTexture);
         sprite.setSize(WIDTH,HEIGHT);
-        health = new Health(BaseScreen.convertToPPM(100), BaseScreen.convertToPPM(15), LIFE);
+        health = new Health(BaseScreen.convertToPPM(100), BaseScreen.convertToPPM(15), LIFE, g);
         healthBarPosition = new Vector2();
         currentLife = LIFE;
 
@@ -83,14 +84,15 @@ public abstract class Ship implements Collider, Renderable {
         setX(body.getPosition().x-getWIDTH()/2);
         setY(body.getPosition().y-getHEIGHT()/2);
         sprite.draw(sb);
+        updateHealthBar(sb);
     }
 
-    public void updateHealthBar(Camera camera){
+    public void updateHealthBar(SpriteBatch batch){
         health.updateLife(currentLife);
         healthBarPosition.set(body.getPosition().x,body.getPosition().y);
         healthBarPosition.x -= (getWIDTH()/2);
         healthBarPosition.y -= 2*(getHEIGHT()/3);
-        //health.draw(healthBarPosition, camera);
+        health.draw(healthBarPosition, batch);
     }
 
     public abstract void loadTexture();
@@ -117,7 +119,7 @@ public abstract class Ship implements Collider, Renderable {
     }
 
     public void destruct() {
-        health.destruct();
+        //health.destruct();
         world.destroyBody(body);
     }
 

@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.*;
@@ -66,13 +67,6 @@ public class GameScreen extends BaseScreen {
         instanciateElements();
 
 
-
-        /*
-
-            Criação temporaria de naves, deve-se criar um sistema de fases que fará todo este processo
-
-         */
-
         level = createFirstLevel();
         totalTime = 0L;
         initialTime = TimeUtils.millis();
@@ -82,41 +76,6 @@ public class GameScreen extends BaseScreen {
 
         game.getShips().add(player);
         game.getElements().add(player);
-//        Ship a = new BlackShip(
-//                BaseScreen.convertToPPM(0),
-//                VIRTUAL_HEIGHT - BaseScreen.convertToPPM(0), game);
-//        a.setMovement(new FoolMovementService());
-//
-//        ships.add(a);
-//        elements.add(a);
-//        a = new BlackShip(
-//                BaseScreen.convertToPPM(100),
-//                VIRTUAL_HEIGHT - BaseScreen.convertToPPM(200), game);
-//        a.setMovement(new FoolMovementService());
-//        ships.add(a);
-//        elements.add(a);
-//        a = new BlackShip(
-//                BaseScreen.convertToPPM(210),
-//                VIRTUAL_HEIGHT - BaseScreen.convertToPPM(200), game);
-//        a.setMovement(new FoolMovementService());
-//        ships.add(a);
-//        elements.add(a);
-//        a = new BlackShip(
-//                BaseScreen.convertToPPM(320),
-//                VIRTUAL_HEIGHT - BaseScreen.convertToPPM(200), game);
-//        a.setMovement(new FoolMovementService());
-//        ships.add(a);
-//        elements.add(a);
-//        a = new BlackShip(
-//                BaseScreen.convertToPPM(430),
-//                VIRTUAL_HEIGHT - BaseScreen.convertToPPM(200), game);
-//        a.setMovement(new FoolMovementService());
-//        ships.add(a);
-//        elements.add(a);
-//
-//        elements.add(new Heal(BaseScreen.VIRTUAL_WIDHT/2,BaseScreen.convertToPPM(100), game));
-//
-//        player.setCurrentLife(10);
 
     }
 
@@ -138,10 +97,6 @@ public class GameScreen extends BaseScreen {
             r.render(batch);
         }
         batch.end();
-
-        for(Ship s: game.getShips()){
-            s.updateHealthBar(camera);
-        }
 
         debug.render(world, camera.combined);
     }

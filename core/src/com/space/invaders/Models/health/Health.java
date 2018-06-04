@@ -2,44 +2,51 @@ package com.space.invaders.Models.health;
 
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.space.invaders.Views.BaseScreen;
+import com.space.invaders.controllers.SpaceInvaders;
 
 public class Health {
 
-    private ShapeRenderer render;
+    private Texture background;
+    private Texture currentLife;
     private float life;
     private float total;
     private float widht;
     private float height;
     private float progress;
+    private SpaceInvaders g;
 
-    public Health(float widht, float height, float total){
-        render = new ShapeRenderer();
+    public Health(float widht, float height, float total, SpaceInvaders game){
         this.total = total;
         this.life = total;
         this.widht = widht;
         this.height = height;
+        this.g = game;
+        loadTexture();
     }
 
-    public void draw(Vector2 position, Camera camera){
+    public void loadTexture(){
+        background = g.getTexture("health/white.png");
+        currentLife = g.getTexture("health/red.png");
+    }
+
+    public void draw(Vector2 position, SpriteBatch batch){
         progress = (life/total) * widht;
+        progress = (progress < 0? 0:progress);
 
-        render.setProjectionMatrix(camera.combined);
-        render.begin(ShapeRenderer.ShapeType.Filled);
-
-        render.setColor(Color.WHITE);
-        render.rect(position.x, position.y,
+        batch.draw(background,position.x, position.y,
                         widht + BaseScreen.convertToPPM(2),
                         height + BaseScreen.convertToPPM(2));
 
-        render.setColor(Color.RED);
-        render.rect(position.x + BaseScreen.convertToPPM(1),
+        batch.draw(currentLife,position.x + BaseScreen.convertToPPM(1),
                         position.y + BaseScreen.convertToPPM(1),
                         progress, height);
 
-        render.end();
     }
 
     public void updateLife(float life){
@@ -47,7 +54,4 @@ public class Health {
     }
 
 
-    public void destruct() {
-        render.dispose();
-    }
 }

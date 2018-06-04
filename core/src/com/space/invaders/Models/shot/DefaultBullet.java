@@ -10,7 +10,7 @@ import com.space.invaders.controllers.SpaceInvaders;
 
 public class DefaultBullet extends Bullet {
 
-    private volatile static Texture shotTexture;
+    private Texture shotTexture;
 
     public DefaultBullet(float x, float y, Vector2 v, SpaceInvaders game, World world, Ship ship){
         super(x,y, v, game, world, ship);
@@ -20,21 +20,15 @@ public class DefaultBullet extends Bullet {
     }
 
     public void loadTexture() {
-        if(shotTexture == null){
-            synchronized (DefaultBullet.class){
-                if(shotTexture == null){
-                    shotTexture = g.getTexture("shoot.png");
-                }
-            }
-        }
+        shotTexture = g.getTexture("shoot.png");
     }
 
     public void render(SpriteBatch batch){
-        update(Gdx.graphics.getDeltaTime());
+        update();
         batch.draw(shotTexture, getX(), getY(), SHOT_WIDHT, SHOT_HEIGHT);
     }
 
-    public void update(float delta){
+    public void update(){
         setX(body.getPosition().x);
         setY(body.getPosition().y);
     }

@@ -44,7 +44,7 @@ public abstract class Bullet implements Collider, Renderable {
     }
 
     public abstract void render(SpriteBatch batch);
-    public abstract void update(float delta);
+    public abstract void update();
     public abstract void createBody();
     public abstract void destruct();
 
