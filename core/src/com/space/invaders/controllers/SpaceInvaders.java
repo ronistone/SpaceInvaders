@@ -15,6 +15,7 @@ import com.space.invaders.Views.MainMenuScreen;
 import com.space.invaders.services.AssetsService;
 import com.space.invaders.services.ContactListenerCustom;
 import com.space.invaders.services.factory.BodyFactory;
+import com.space.invaders.services.level.LevelService;
 import com.space.invaders.services.shot.ShootService;
 
 
@@ -23,17 +24,24 @@ public class SpaceInvaders extends Game {
     private ObjectMap<Class<? extends BaseScreen>, BaseScreen> screens = new ObjectMap<Class<? extends BaseScreen>, BaseScreen>();
     private AssetsService textureManager;
     private ShootService shootService;
+    private LevelService levelService;
     private BodyFactory bodyFactory;
     private World world;
+    private Array<Renderable> elements;
+    private Array<Ship> ships;
 
 
 	@Override
 	public void create () {
+	    elements = new Array<>();
+	    ships = new Array<>();
+
 	    textureManager = AssetsService.getInstance();
 	    shootService = new ShootService();
 	    bodyFactory = new BodyFactory();
         world = new World(new Vector2(0,0), true);
         world.setContactListener(new ContactListenerCustom());
+        levelService = new LevelService(this);
 	    loadScreens();
         changeScreen(MainMenuScreen.class);
 	}
@@ -63,7 +71,7 @@ public class SpaceInvaders extends Game {
     }
 
 
-    public void update(float delta, Ship player, Array<Renderable> elements){
+    public void update(float delta, Ship player){
         shootService.shoot(player, elements, delta);
 
         for(Renderable r: elements){
@@ -84,5 +92,61 @@ public class SpaceInvaders extends Game {
 
     public BodyFactory getBodyFactory() {
         return bodyFactory;
+    }
+
+    public ObjectMap<Class<? extends BaseScreen>, BaseScreen> getScreens() {
+        return screens;
+    }
+
+    public void setScreens(ObjectMap<Class<? extends BaseScreen>, BaseScreen> screens) {
+        this.screens = screens;
+    }
+
+    public AssetsService getTextureManager() {
+        return textureManager;
+    }
+
+    public void setTextureManager(AssetsService textureManager) {
+        this.textureManager = textureManager;
+    }
+
+    public ShootService getShootService() {
+        return shootService;
+    }
+
+    public void setShootService(ShootService shootService) {
+        this.shootService = shootService;
+    }
+
+    public LevelService getLevelService() {
+        return levelService;
+    }
+
+    public void setLevelService(LevelService levelService) {
+        this.levelService = levelService;
+    }
+
+    public void setBodyFactory(BodyFactory bodyFactory) {
+        this.bodyFactory = bodyFactory;
+    }
+
+    public void setWorld(World world) {
+        this.world = world;
+    }
+
+    public Array<Renderable> getElements() {
+        return elements;
+    }
+
+    public void setElements(Array<Renderable> elements) {
+        this.elements = elements;
+    }
+
+    public Array<Ship> getShips() {
+        return ships;
+    }
+
+    public void setShips(Array<Ship> ships) {
+        this.ships = ships;
     }
 }

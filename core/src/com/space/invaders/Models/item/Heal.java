@@ -12,15 +12,21 @@ import com.space.invaders.controllers.SpaceInvaders;
 public class Heal implements Item {
 
     private final float heal = 100;
-    private float widht = BaseScreen.convertToPPM(200);
-    private float height = BaseScreen.convertToPPM(200);
+    private float widht = BaseScreen.convertToPPM(100);
+    private float height = BaseScreen.convertToPPM(100);
     private SpaceInvaders g;
     private Sprite sprite;
     private Body body;
     private Texture texture;
     private boolean isAlive;
 
+    public Heal(){}
+
     public Heal(float x, float speed, SpaceInvaders game){
+        init(game,speed, x);
+    }
+
+    public void init(SpaceInvaders game, float speed, float x){
         this.g = game;
         isAlive = true;
         loadTexture();

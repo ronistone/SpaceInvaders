@@ -12,9 +12,10 @@ import java.util.List;
 
 public class SimpleShot extends Weapon {
 
-    public SimpleShot(Ship ship, World world){
-        this.ship = ship;
-        this.world = world;
+    public SimpleShot(){}
+
+    public SimpleShot(Ship ship){
+        init(ship);
     }
 
     public List<Bullet> shoot() {

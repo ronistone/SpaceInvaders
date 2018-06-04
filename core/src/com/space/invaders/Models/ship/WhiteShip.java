@@ -11,6 +11,9 @@ import java.util.Map;
 
 public class WhiteShip extends Ship {
 
+    public WhiteShip(){
+        super();
+    }
     public WhiteShip(float X, float Y, SpaceInvaders game) {
         this(X,Y,game,false);
     }

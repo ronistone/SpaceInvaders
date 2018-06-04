@@ -24,7 +24,7 @@ import java.util.Map;
 
 public abstract class Ship implements Collider, Renderable {
 
-    private final boolean isPlayer;
+    private boolean isPlayer;
     private Texture shipTexture;
     private Sprite sprite;
     private float WIDTH = BaseScreen.convertToPPM(100);
@@ -51,7 +51,13 @@ public abstract class Ship implements Collider, Renderable {
     protected Weapon weapon;
     protected Health health;
 
+
+    public Ship(){}
     public Ship(float x, float y, SpaceInvaders game, boolean isPlayer){
+        init(game, isPlayer, x, y);
+    }
+
+    public void init(SpaceInvaders game, boolean isPlayer, float x, float y){
         g = game;
         isAlive = true;
         this.isPlayer = isPlayer;
@@ -84,7 +90,7 @@ public abstract class Ship implements Collider, Renderable {
         healthBarPosition.set(body.getPosition().x,body.getPosition().y);
         healthBarPosition.x -= (getWIDTH()/2);
         healthBarPosition.y -= 2*(getHEIGHT()/3);
-        health.draw(healthBarPosition, camera);
+        //health.draw(healthBarPosition, camera);
     }
 
     public abstract void loadTexture();
@@ -310,6 +316,8 @@ public abstract class Ship implements Collider, Renderable {
     public void setHealth(Health health) {
         this.health = health;
     }
+
+
 }
 
 

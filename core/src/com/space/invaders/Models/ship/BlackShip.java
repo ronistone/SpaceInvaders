@@ -9,6 +9,7 @@ import java.util.Map;
 
 public class BlackShip extends Ship {
 
+    public BlackShip(){super();}
     public BlackShip(float X, float Y, SpaceInvaders game) {
         this(X,Y,game,false);
     }
