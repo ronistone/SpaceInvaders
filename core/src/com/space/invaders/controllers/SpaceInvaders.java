@@ -78,6 +78,9 @@ public class SpaceInvaders extends Game {
             if(!r.isAlive()){
                 r.destruct();
                 elements.removeValue(r,true);
+                if(r instanceof Ship){
+                    ships.removeValue((Ship) r, true);
+                }
             }
         }
     }

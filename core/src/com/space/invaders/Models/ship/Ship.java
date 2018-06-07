@@ -20,6 +20,7 @@ import com.space.invaders.controllers.SpaceInvaders;
 import com.space.invaders.services.factory.BodyFactory;
 import com.space.invaders.services.movement.MovementService;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -98,7 +99,10 @@ public abstract class Ship implements Collider, Renderable {
     public abstract void loadTexture();
 
     public List<Bullet> shoot(){
-        return weapon.shoot();
+        if(weapon!=null) {
+            return weapon.shoot();
+        }
+        return new ArrayList<>();
     }
 
     @Override
@@ -229,6 +233,9 @@ public abstract class Ship implements Collider, Renderable {
     }
 
     public boolean isAlive() {
+        if(currentLife <= MathUtil.LIFE_EPS){
+            setAlive(false);
+        }
         return isAlive;
     }
 

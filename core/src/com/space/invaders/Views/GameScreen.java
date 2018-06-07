@@ -1,10 +1,8 @@
 package com.space.invaders.Views;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Camera;
-import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.*;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
@@ -82,23 +80,34 @@ public class GameScreen extends BaseScreen {
     @Override
     public void render(float delta) {
 
-        world.step(delta, 6, 2);
-        game.getLevelService().levelManage(level,TimeUtils.millis() - initialTime);
-        camera.update();
-        game.update(delta, player);
+//        if(endGame()){
+//
+//            showEndGame();
+//
+//        }else {
 
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        batch.setProjectionMatrix(camera.combined);
+            world.step(delta, 6, 2);
+            game.getLevelService().levelManage(level, TimeUtils.millis() - initialTime);
+            camera.update();
+            game.update(delta, player);
 
-        batch.begin();
+            Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+            batch.setProjectionMatrix(camera.combined);
 
-        batch.draw(background,0,0, VIRTUAL_WIDHT, VIRTUAL_HEIGHT);
-        for(Renderable r: game.getElements()){
-            r.render(batch);
-        }
-        batch.end();
+            batch.begin();
 
-        debug.render(world, camera.combined);
+            batch.draw(background, 0, 0, VIRTUAL_WIDHT, VIRTUAL_HEIGHT);
+            for (Renderable r : game.getElements()) {
+                r.render(batch);
+            }
+            if(endGame()){
+                showEndGame();
+            }
+
+            batch.end();
+
+            debug.render(world, camera.combined);
+//        }
     }
 
 
@@ -138,13 +147,13 @@ public class GameScreen extends BaseScreen {
         Array<Items> items = new Array<>();
         OrderedMap<Items,Double> pItem = new OrderedMap<>();
         OrderedMap<Long, EnemiesLevel> tEnemies = new OrderedMap<>();
-        tEnemies.put(5L,new EnemiesLevel(10,Ships.WhiteShip,Movements.FoolMovement,Weapons.SimpleShot));
-        tEnemies.put(10L,new EnemiesLevel(5,Ships.WhiteShip,Movements.FoolMovement,Weapons.SimpleShot));
-        tEnemies.put(11L,new EnemiesLevel(5,Ships.WhiteShip,Movements.FoolMovement,Weapons.SimpleShot));
-        tEnemies.put(12L,new EnemiesLevel(5,Ships.WhiteShip,Movements.FoolMovement,Weapons.SimpleShot));
-        tEnemies.put(13L,new EnemiesLevel(5,Ships.WhiteShip,Movements.FoolMovement,Weapons.SimpleShot));
-        tEnemies.put(14L,new EnemiesLevel(5,Ships.WhiteShip,Movements.FoolMovement,Weapons.SimpleShot));
-        tEnemies.put(15L,new EnemiesLevel(5,Ships.WhiteShip,Movements.FoolMovement,Weapons.SimpleShot));
+//        tEnemies.put(5L,new EnemiesLevel(1,Ships.WhiteShip,Movements.FoolMovement,Weapons.SimpleShot));
+//        tEnemies.put(10L,new EnemiesLevel(5,Ships.WhiteShip,Movements.FoolMovement,Weapons.SimpleShot));
+//        tEnemies.put(11L,new EnemiesLevel(5,Ships.WhiteShip,Movements.FoolMovement,Weapons.SimpleShot));
+//        tEnemies.put(12L,new EnemiesLevel(5,Ships.WhiteShip,Movements.FoolMovement,Weapons.SimpleShot));
+//        tEnemies.put(13L,new EnemiesLevel(5,Ships.WhiteShip,Movements.FoolMovement,Weapons.SimpleShot));
+//        tEnemies.put(14L,new EnemiesLevel(5,Ships.WhiteShip,Movements.FoolMovement,Weapons.SimpleShot));
+//        tEnemies.put(15L,new EnemiesLevel(5,Ships.WhiteShip,Movements.FoolMovement,Weapons.SimpleShot));
         pItem.put(Items.Heal, 100.0);
         items.add(Items.Heal);
         enemies.add(Ships.WhiteShip, Ships.BlackShip);
@@ -155,5 +164,39 @@ public class GameScreen extends BaseScreen {
         level.setProbabilityItems(pItem);
         level.setEnemiesTime(tEnemies);
         return level;
+    }
+
+    private boolean endGame(){
+        if(!player.isAlive()) return true;
+        if(game.getShips().size <= 1 && level.getEnemiesTime().size == 0) return  true;
+        System.out.println(game.getShips().size);
+        return false;
+    }
+
+    private void showEndGame(){
+        BitmapFont end = new BitmapFont();
+        BitmapFont touch = new BitmapFont();
+        player.setMovement(null);
+        player.setWeapon(null);
+
+        end.setColor(Color.WHITE);
+        touch.setColor(Color.WHITE);
+        end.getData().setScale(BaseScreen.convertToPPM(10), BaseScreen.convertToPPM(4 ));
+        touch.getData().setScale(BaseScreen.convertToPPM(10), BaseScreen.convertToPPM(4));
+//        Gdx.gl.glClearColor(0, 0, 0, 1);
+//        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+//
+//        batch.setProjectionMatrix(camera.combined);
+//        batch.begin();
+
+        end.draw(batch,"O Jogo Acabou",
+                0f,
+                BaseScreen.VIRTUAL_HEIGHT/2);
+        touch.draw(batch,"Toque para continuar",
+                0f,
+                BaseScreen.VIRTUAL_HEIGHT/3);
+
+//        batch.end();
+
     }
 }
