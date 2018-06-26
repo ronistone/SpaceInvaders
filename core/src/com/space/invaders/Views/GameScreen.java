@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.*;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
@@ -26,6 +27,7 @@ import com.space.invaders.services.movement.Movements;
 import com.space.invaders.services.movement.PlayerMovementService;
 
 import java.util.HashMap;
+import java.util.concurrent.TimeUnit;
 
 public class GameScreen extends BaseScreen {
 
@@ -41,6 +43,7 @@ public class GameScreen extends BaseScreen {
     private Box2DDebugRenderer debug;
     private Long totalTime;
     private Long initialTime;
+    private Long endTime;
 
 
     private GameScreen(SpaceInvaders g) {
@@ -74,6 +77,7 @@ public class GameScreen extends BaseScreen {
 
         game.getShips().add(player);
         game.getElements().add(player);
+        endTime = null;
 
     }
 
@@ -101,6 +105,9 @@ public class GameScreen extends BaseScreen {
                 r.render(batch);
             }
             if(endGame()){
+                if(endTime == null){
+                    endTime = TimeUtils.millis();
+                }
                 showEndGame();
             }
 
@@ -147,13 +154,13 @@ public class GameScreen extends BaseScreen {
         Array<Items> items = new Array<>();
         OrderedMap<Items,Double> pItem = new OrderedMap<>();
         OrderedMap<Long, EnemiesLevel> tEnemies = new OrderedMap<>();
-//        tEnemies.put(5L,new EnemiesLevel(1,Ships.WhiteShip,Movements.FoolMovement,Weapons.SimpleShot));
-//        tEnemies.put(10L,new EnemiesLevel(5,Ships.WhiteShip,Movements.FoolMovement,Weapons.SimpleShot));
-//        tEnemies.put(11L,new EnemiesLevel(5,Ships.WhiteShip,Movements.FoolMovement,Weapons.SimpleShot));
-//        tEnemies.put(12L,new EnemiesLevel(5,Ships.WhiteShip,Movements.FoolMovement,Weapons.SimpleShot));
-//        tEnemies.put(13L,new EnemiesLevel(5,Ships.WhiteShip,Movements.FoolMovement,Weapons.SimpleShot));
-//        tEnemies.put(14L,new EnemiesLevel(5,Ships.WhiteShip,Movements.FoolMovement,Weapons.SimpleShot));
-//        tEnemies.put(15L,new EnemiesLevel(5,Ships.WhiteShip,Movements.FoolMovement,Weapons.SimpleShot));
+        tEnemies.put(5L,new EnemiesLevel(1,Ships.WhiteShip,Movements.FoolMovement,Weapons.SimpleShot));
+        tEnemies.put(10L,new EnemiesLevel(5,Ships.WhiteShip,Movements.FoolMovement,Weapons.SimpleShot));
+        tEnemies.put(11L,new EnemiesLevel(5,Ships.WhiteShip,Movements.FoolMovement,Weapons.SimpleShot));
+        tEnemies.put(12L,new EnemiesLevel(5,Ships.WhiteShip,Movements.FoolMovement,Weapons.SimpleShot));
+        tEnemies.put(13L,new EnemiesLevel(5,Ships.WhiteShip,Movements.FoolMovement,Weapons.SimpleShot));
+        tEnemies.put(14L,new EnemiesLevel(5,Ships.WhiteShip,Movements.FoolMovement,Weapons.SimpleShot));
+        tEnemies.put(15L,new EnemiesLevel(5,Ships.WhiteShip,Movements.FoolMovement,Weapons.SimpleShot));
         pItem.put(Items.Heal, 100.0);
         items.add(Items.Heal);
         enemies.add(Ships.WhiteShip, Ships.BlackShip);
@@ -168,35 +175,28 @@ public class GameScreen extends BaseScreen {
 
     private boolean endGame(){
         if(!player.isAlive()) return true;
-        if(game.getShips().size <= 1 && level.getEnemiesTime().size == 0) return  true;
+        if(level==null || (game.getShips().size <= 1 && level.getEnemiesTime().size == 0)) return  true;
         System.out.println(game.getShips().size);
         return false;
     }
 
     private void showEndGame(){
-        BitmapFont end = new BitmapFont();
-        BitmapFont touch = new BitmapFont();
-        player.setMovement(null);
-        player.setWeapon(null);
+       Texture end = game.getTexture("endGame.png");
+       player.setWeapon(null);
+       player.setMovement(null);
+       batch.draw(end, 0,BaseScreen.VIRTUAL_HEIGHT/2, BaseScreen.VIRTUAL_WIDHT, BaseScreen.VIRTUAL_WIDHT/2);
+       if(Gdx.input.isTouched() && (TimeUtils.millis() - endTime) > TimeUnit.SECONDS.toMillis(2)){
+           destroy();
+           game.changeScreen(MainMenuScreen.class);
+       }
+    }
 
-        end.setColor(Color.WHITE);
-        touch.setColor(Color.WHITE);
-        end.getData().setScale(BaseScreen.convertToPPM(10), BaseScreen.convertToPPM(4 ));
-        touch.getData().setScale(BaseScreen.convertToPPM(10), BaseScreen.convertToPPM(4));
-//        Gdx.gl.glClearColor(0, 0, 0, 1);
-//        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-//
-//        batch.setProjectionMatrix(camera.combined);
-//        batch.begin();
-
-        end.draw(batch,"O Jogo Acabou",
-                0f,
-                BaseScreen.VIRTUAL_HEIGHT/2);
-        touch.draw(batch,"Toque para continuar",
-                0f,
-                BaseScreen.VIRTUAL_HEIGHT/3);
-
-//        batch.end();
-
+    private void destroy(){
+        for(Renderable r: game.getElements()){
+            r.destruct();
+        }
+        game.getShips().clear();
+        game.getElements().clear();
+        level = null;
     }
 }

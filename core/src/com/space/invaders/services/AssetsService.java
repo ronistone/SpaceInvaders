@@ -22,6 +22,7 @@ public class AssetsService {
         return textures.get(path);
     }
 
+
     public static AssetsService getInstance() {
         if(instance==null){
             synchronized (AssetsService.class){
