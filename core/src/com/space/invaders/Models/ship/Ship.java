@@ -33,8 +33,6 @@ public abstract class Ship implements Collider, Renderable {
     private float HEIGHT = BaseScreen.convertToPPM(90);
     private float LATERAL_SPEED = BaseScreen.convertToPPM(100);
     private float SPEED = BaseScreen.convertToPPM(6);
-    private float SHOT_RATE = 5;
-    private float LAST_SHOT;
     private float LIFE = 100;
     public Body body;
     protected World world;
@@ -106,15 +104,12 @@ public abstract class Ship implements Collider, Renderable {
     }
 
     @Override
-    public void collide(Object a) {
-        if(a instanceof Bullet){
-            Bullet b = (Bullet) a;
-            if(!b.getOwner().equals(this)) {
-                currentLife -= b.getDamage();
-                if(currentLife <= MathUtil.LIFE_EPS){
-                    setAlive(false);
-                }
-            }
+    public void collide(Object a) {}
+
+    public void hit(float damage){
+        currentLife -= damage;
+        if(currentLife <= MathUtil.LIFE_EPS){
+            setAlive(false);
         }
     }
 
@@ -192,21 +187,6 @@ public abstract class Ship implements Collider, Renderable {
         this.SPEED = SPEED;
     }
 
-    public float getSHOT_RATE() {
-        return SHOT_RATE;
-    }
-
-    public void setSHOT_RATE(float SHOT_RATE) {
-        this.SHOT_RATE = SHOT_RATE;
-    }
-
-    public float getLAST_SHOT() {
-        return LAST_SHOT;
-    }
-
-    public void setLAST_SHOT(float LAST_SHOT) {
-        this.LAST_SHOT = LAST_SHOT;
-    }
 
     public MovementService getMovement() {
         return movement;
@@ -325,7 +305,6 @@ public abstract class Ship implements Collider, Renderable {
     public void setHealth(Health health) {
         this.health = health;
     }
-
 
 }
 

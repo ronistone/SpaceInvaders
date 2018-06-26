@@ -81,8 +81,9 @@ public class DefaultBullet extends Bullet {
 
     @Override
     public void collide(Object a) {
-        if(a instanceof Ship && owner != a){
+        if(a instanceof Ship && owner.isPlayer() != ((Ship) a).isPlayer()){
             isAlive = false;
+            ((Ship)a).hit(getDamage());
         }
     }
 }

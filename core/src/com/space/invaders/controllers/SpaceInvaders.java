@@ -72,7 +72,7 @@ public class SpaceInvaders extends Game {
 
 
     public void update(float delta, Ship player){
-        shootService.shoot(player, elements, delta);
+        shootService.shoot(player, elements, ships, delta);
 
         for(Renderable r: elements){
             if(!r.isAlive()){
