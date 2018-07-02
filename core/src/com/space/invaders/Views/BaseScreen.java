@@ -17,4 +17,7 @@ public abstract class BaseScreen extends ScreenAdapter {
     public static float convertToPPM(float m){
         return m/PPM;
     }
+    public static float convertToPixel(float m){
+        return m*PPM;
+    }
 }

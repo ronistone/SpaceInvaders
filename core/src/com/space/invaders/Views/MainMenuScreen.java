@@ -60,8 +60,8 @@ public class MainMenuScreen extends BaseScreen {
         startButton.addListener(new EventListener() {
             @Override
             public boolean handle(Event event) {
-                game.changeScreen(GameScreen.class);
                 dispose();
+                game.changeScreen(LevelScreen.class);
                 return true;
             }
         });
@@ -70,6 +70,7 @@ public class MainMenuScreen extends BaseScreen {
     @Override
     public void dispose() {
         super.dispose();
+        System.out.println("Dispose MainMenu");
         Gdx.input.setInputProcessor(null);
     }
 }

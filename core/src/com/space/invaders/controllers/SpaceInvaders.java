@@ -1,16 +1,19 @@
 package com.space.invaders.controllers;
 
 import com.badlogic.gdx.Game;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.ObjectMap;
 import com.space.invaders.Models.Renderable;
+import com.space.invaders.Models.level.Level;
 import com.space.invaders.Models.ship.Ship;
 import com.space.invaders.Models.shot.Bullet;
 import com.space.invaders.Views.BaseScreen;
 import com.space.invaders.Views.GameScreen;
+import com.space.invaders.Views.LevelScreen;
 import com.space.invaders.Views.MainMenuScreen;
 import com.space.invaders.services.AssetsService;
 import com.space.invaders.services.ContactListenerCustom;
@@ -29,6 +32,7 @@ public class SpaceInvaders extends Game {
     private World world;
     private Array<Renderable> elements;
     private Array<Ship> ships;
+    private Level level;
 
 
 	@Override
@@ -68,6 +72,7 @@ public class SpaceInvaders extends Game {
 	private void loadScreens(){
 	    screens.put(GameScreen.class, GameScreen.getInstance(this));
 	    screens.put(MainMenuScreen.class, MainMenuScreen.getInstance(this));
+	    screens.put(LevelScreen.class, LevelScreen.getInstance(this));
     }
 
 
@@ -151,5 +156,13 @@ public class SpaceInvaders extends Game {
 
     public void setShips(Array<Ship> ships) {
         this.ships = ships;
+    }
+
+    public Level getLevel() {
+        return level;
+    }
+
+    public void setLevel(Level level) {
+        this.level = level;
     }
 }
