@@ -1,13 +1,9 @@
 package com.space.invaders.Models.health;
 
-import com.badlogic.gdx.graphics.Camera;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
-import com.space.invaders.Views.BaseScreen;
+import com.space.invaders.view.screen.BaseScreen;
 import com.space.invaders.controllers.SpaceInvaders;
 
 public class Health {

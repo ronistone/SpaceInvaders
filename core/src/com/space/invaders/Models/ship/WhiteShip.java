@@ -1,13 +1,6 @@
 package com.space.invaders.Models.ship;
 
-import com.badlogic.gdx.physics.box2d.*;
-import com.space.invaders.Models.shot.DefaultBullet;
-import com.space.invaders.Models.shot.Bullet;
-import com.space.invaders.Views.BaseScreen;
 import com.space.invaders.controllers.SpaceInvaders;
-import com.space.invaders.services.factory.BodyFactory;
-
-import java.util.Map;
 
 public class WhiteShip extends Ship {
 

@@ -2,9 +2,7 @@ package com.space.invaders.services;
 
 import com.badlogic.gdx.InputProcessor;
 import com.space.invaders.Models.Touchable;
-import com.space.invaders.Models.level.Level;
-import com.space.invaders.Views.BaseScreen;
-import com.space.invaders.controllers.SpaceInvaders;
+import com.space.invaders.view.screen.BaseScreen;
 
 import java.util.List;
 

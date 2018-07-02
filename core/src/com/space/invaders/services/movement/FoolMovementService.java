@@ -2,8 +2,8 @@ package com.space.invaders.services.movement;
 
 import com.badlogic.gdx.math.Vector2;
 import com.space.invaders.Models.ship.Ship;
-import com.space.invaders.Util.MathUtil;
-import com.space.invaders.Views.BaseScreen;
+import com.space.invaders.util.MathUtil;
+import com.space.invaders.view.screen.BaseScreen;
 
 import java.util.Random;
 

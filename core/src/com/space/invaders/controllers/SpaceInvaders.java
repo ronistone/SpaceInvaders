@@ -1,7 +1,6 @@
 package com.space.invaders.controllers;
 
 import com.badlogic.gdx.Game;
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.World;
@@ -10,11 +9,10 @@ import com.badlogic.gdx.utils.ObjectMap;
 import com.space.invaders.Models.Renderable;
 import com.space.invaders.Models.level.Level;
 import com.space.invaders.Models.ship.Ship;
-import com.space.invaders.Models.shot.Bullet;
-import com.space.invaders.Views.BaseScreen;
-import com.space.invaders.Views.GameScreen;
-import com.space.invaders.Views.LevelScreen;
-import com.space.invaders.Views.MainMenuScreen;
+import com.space.invaders.view.screen.BaseScreen;
+import com.space.invaders.view.screen.GameScreen;
+import com.space.invaders.view.screen.LevelScreen;
+import com.space.invaders.view.screen.MainMenuScreen;
 import com.space.invaders.services.AssetsService;
 import com.space.invaders.services.ContactListenerCustom;
 import com.space.invaders.services.factory.BodyFactory;

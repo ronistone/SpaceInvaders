@@ -17,15 +17,14 @@ import com.space.invaders.Models.weapon.SimpleShot;
 import com.space.invaders.Models.weapon.ThreeShot;
 import com.space.invaders.Models.weapon.Weapon;
 import com.space.invaders.Models.weapon.Weapons;
-import com.space.invaders.Util.MathUtil;
-import com.space.invaders.Views.BaseScreen;
+import com.space.invaders.util.MathUtil;
+import com.space.invaders.view.screen.BaseScreen;
 import com.space.invaders.controllers.SpaceInvaders;
 import com.space.invaders.services.movement.FoolMovementService;
 import com.space.invaders.services.movement.MovementService;
 import com.space.invaders.services.movement.Movements;
 import com.space.invaders.services.movement.PlayerMovementService;
 
-import java.sql.Time;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 

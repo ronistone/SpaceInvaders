@@ -5,7 +5,6 @@ import com.badlogic.gdx.utils.Array;
 import com.space.invaders.Models.Renderable;
 import com.space.invaders.Models.ship.Ship;
 import com.space.invaders.Models.shot.Bullet;
-import com.space.invaders.Views.BaseScreen;
 
 import java.util.Iterator;
 

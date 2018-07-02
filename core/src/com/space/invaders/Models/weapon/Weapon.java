@@ -1,13 +1,10 @@
 package com.space.invaders.Models.weapon;
 
-import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.TimeUtils;
 import com.space.invaders.Models.ship.Ship;
 import com.space.invaders.Models.shot.Bullet;
-import com.space.invaders.Models.shot.DefaultBullet;
-import com.space.invaders.Views.BaseScreen;
-import com.space.invaders.controllers.SpaceInvaders;
+import com.space.invaders.view.screen.BaseScreen;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -3,7 +3,7 @@ package com.space.invaders.services.factory;
 import com.badlogic.gdx.physics.box2d.*;
 import com.space.invaders.Models.item.Item;
 import com.space.invaders.Models.ship.Ship;
-import com.space.invaders.Util.MathUtil;
+import com.space.invaders.util.MathUtil;
 
 public class BodyFactory {
 

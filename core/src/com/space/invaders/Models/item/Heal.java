@@ -1,12 +1,11 @@
 package com.space.invaders.Models.item;
 
-import com.badlogic.gdx.Game;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.space.invaders.Models.ship.Ship;
-import com.space.invaders.Views.BaseScreen;
+import com.space.invaders.view.screen.BaseScreen;
 import com.space.invaders.controllers.SpaceInvaders;
 
 public class Heal implements Item {

@@ -1,11 +1,9 @@
 package com.space.invaders.Models.ship;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
@@ -14,15 +12,13 @@ import com.space.invaders.Models.Renderable;
 import com.space.invaders.Models.health.Health;
 import com.space.invaders.Models.shot.Bullet;
 import com.space.invaders.Models.weapon.Weapon;
-import com.space.invaders.Util.MathUtil;
-import com.space.invaders.Views.BaseScreen;
+import com.space.invaders.util.MathUtil;
+import com.space.invaders.view.screen.BaseScreen;
 import com.space.invaders.controllers.SpaceInvaders;
-import com.space.invaders.services.factory.BodyFactory;
 import com.space.invaders.services.movement.MovementService;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public abstract class Ship implements Collider, Renderable {
 
