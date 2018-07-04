@@ -62,6 +62,7 @@ public class GameScreen extends BaseScreen {
 
         game.getShips().add(player);
         game.getElements().add(player);
+        game.setPlayer(player);
         endTime = null;
 
     }
@@ -72,7 +73,7 @@ public class GameScreen extends BaseScreen {
             world.step(delta, 6, 2);
             game.getLevelService().levelManage(game.getLevel(), TimeUtils.millis() - initialTime);
             camera.update();
-            game.update(delta, player);
+            game.update(delta);
 
             Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
             batch.setProjectionMatrix(camera.combined);
@@ -128,7 +129,6 @@ public class GameScreen extends BaseScreen {
     private boolean endGame(){
         if(!player.isAlive()) return true;
         if(game.getLevel()==null || (game.getShips().size <= 1 && game.getLevel().getEnemiesTime().size == 0)) return  true;
-        System.out.println(game.getShips().size);
         return false;
     }
 

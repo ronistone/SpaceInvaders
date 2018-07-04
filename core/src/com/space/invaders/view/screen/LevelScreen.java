@@ -91,7 +91,6 @@ public class LevelScreen extends BaseScreen {
 
     @Override
     public void dispose() {
-        System.out.println("Dispose LevelScreen");
         Gdx.input.setInputProcessor(null);
     }
 }

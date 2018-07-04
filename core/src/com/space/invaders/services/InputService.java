@@ -40,7 +40,6 @@ public class InputService implements InputProcessor {
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
 
-        System.out.println("Touched: (" + screenX + ", " + screenY + ")");
         float x = BaseScreen.convertToPPM(screenX);
         float y = BaseScreen.convertToPPM(screenY);
         for( Touchable t: touchables){

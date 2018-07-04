@@ -17,6 +17,7 @@ import com.space.invaders.models.weapon.SimpleShot;
 import com.space.invaders.models.weapon.ThreeShot;
 import com.space.invaders.models.weapon.Weapon;
 import com.space.invaders.models.weapon.Weapons;
+import com.space.invaders.services.movement.FollowMovementService;
 import com.space.invaders.util.MathUtil;
 import com.space.invaders.view.screen.BaseScreen;
 import com.space.invaders.controllers.SpaceInvaders;
@@ -75,7 +76,6 @@ public class LevelService {
             random.setSeed(TimeUtils.nanoTime());
             double a = random.nextDouble();
             if(level.getnItems() > 0 && a > MathUtil.ITEM_PROBABILITY - (level.getnItems()/100f)) {
-                System.out.println(a);
                 generateItem(level);
 
             }
@@ -95,6 +95,8 @@ public class LevelService {
 
         movementationAvailable.put(Movements.FoolMovement, FoolMovementService.class);
         movementationAvailable.put(Movements.PlayerMovement, PlayerMovementService.class);
+        movementationAvailable.put(Movements.FollowMovement, FollowMovementService.class);
+
     }
 
     private void generateItem(Level level) throws IllegalAccessException, InstantiationException {
@@ -119,7 +121,6 @@ public class LevelService {
     private void generateShips(Level level, Long totalTime) throws IllegalAccessException, InstantiationException {
         Ship s;
         for(Long t: level.getEnemiesTime().orderedKeys()){
-            //System.out.println(TimeUnit.SECONDS.toMillis(t) + "   ----   " + totalTime);
             if(TimeUnit.SECONDS.toMillis(t) <= totalTime){
                 EnemiesLevel e = level.getEnemiesTime().get(t);
                 for(int i=0;i<e.getNum();i++){
@@ -129,7 +130,7 @@ public class LevelService {
                             BaseScreen.VIRTUAL_HEIGHT
                     );
                     if(movementationAvailable.get(e.getMove()) != null) {
-                        s.setMovement(((MovementService) movementationAvailable.get(e.getMove()).newInstance()).init());
+                        s.setMovement(((MovementService) movementationAvailable.get(e.getMove()).newInstance()).init(g));
                     }
                     if(weaponsAvailable.get(e.getWeapon()) != null) {
                         s.setWeapon(((Weapon) weaponsAvailable.get(e.getWeapon()).newInstance()).init(s));

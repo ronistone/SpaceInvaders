@@ -70,7 +70,6 @@ public class MainMenuScreen extends BaseScreen {
 
             @Override
             public void doAction() {
-                dispose();
                 game.changeScreen(LevelScreen.class);
             }
         });

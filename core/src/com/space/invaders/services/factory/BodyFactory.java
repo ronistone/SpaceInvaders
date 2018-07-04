@@ -3,6 +3,7 @@ package com.space.invaders.services.factory;
 import com.badlogic.gdx.physics.box2d.*;
 import com.space.invaders.models.item.Item;
 import com.space.invaders.models.ship.Ship;
+import com.space.invaders.models.shot.Bullet;
 import com.space.invaders.util.MathUtil;
 
 public class BodyFactory {
@@ -57,5 +58,26 @@ public class BodyFactory {
         shape.dispose();
 
         return body;
+    }
+
+    public Body createBulletBody(Bullet bullet, World world){
+        BodyDef bdef = new BodyDef();
+        bdef.position.set(bullet.getX()+bullet.getSHOT_WIDHT()/2, bullet.getY()+(bullet.getSHOT_HEIGHT()+6)/2);
+        bdef.type = BodyDef.BodyType.DynamicBody;
+        bullet.body = world.createBody(bdef);
+
+        PolygonShape shape = new PolygonShape();
+        shape.setAsBox(bullet.getSHOT_WIDHT(), bullet.getSHOT_HEIGHT());
+
+        FixtureDef fixtureDef = new FixtureDef();
+        fixtureDef.shape = shape;
+        fixtureDef.isSensor = true;
+
+        Fixture fixture = bullet.body.createFixture(fixtureDef);
+        fixture.setUserData(bullet);
+        shape.dispose();
+        bullet.body.setLinearVelocity(bullet.getDirection());
+
+        return bullet.body;
     }
 }

@@ -19,12 +19,12 @@ public class LevelsFactory {
         Array<Items> items = new Array<>();
         OrderedMap<Items,Double> pItem = new OrderedMap<>();
         OrderedMap<Long, EnemiesLevel> tEnemies = new OrderedMap<>();
-        tEnemies.put(2L,new EnemiesLevel(2,Ships.WhiteShip, Movements.FoolMovement, Weapons.SimpleShot));
-        tEnemies.put(10L,new EnemiesLevel(2,Ships.WhiteShip,Movements.FoolMovement,Weapons.SimpleShot));
-        tEnemies.put(15L,new EnemiesLevel(2,Ships.WhiteShip,Movements.FoolMovement,Weapons.SimpleShot));
-        tEnemies.put(20L,new EnemiesLevel(2,Ships.WhiteShip,Movements.FoolMovement,Weapons.SimpleShot));
-        tEnemies.put(25L,new EnemiesLevel(2,Ships.WhiteShip,Movements.FoolMovement,Weapons.SimpleShot));
-        tEnemies.put(30L,new EnemiesLevel(2,Ships.WhiteShip,Movements.FoolMovement,Weapons.SimpleShot));
+        tEnemies.put(2L,new EnemiesLevel(2,Ships.WhiteShip, Movements.FollowMovement, Weapons.SimpleShot));
+        tEnemies.put(10L,new EnemiesLevel(2,Ships.WhiteShip,Movements.FollowMovement,Weapons.SimpleShot));
+        tEnemies.put(15L,new EnemiesLevel(2,Ships.WhiteShip,Movements.FollowMovement,Weapons.SimpleShot));
+        tEnemies.put(20L,new EnemiesLevel(2,Ships.WhiteShip,Movements.FollowMovement,Weapons.SimpleShot));
+        tEnemies.put(25L,new EnemiesLevel(2,Ships.WhiteShip,Movements.FollowMovement,Weapons.SimpleShot));
+        tEnemies.put(30L,new EnemiesLevel(2,Ships.WhiteShip,Movements.FollowMovement,Weapons.SimpleShot));
         tEnemies.put(35L,new EnemiesLevel(2,Ships.WhiteShip,Movements.FoolMovement,Weapons.SimpleShot));
         pItem.put(Items.Heal, 100.0);
         items.add(Items.Heal);

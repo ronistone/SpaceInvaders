@@ -8,7 +8,9 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
 import com.space.invaders.models.Collider;
+import com.space.invaders.models.ObserverMovement;
 import com.space.invaders.models.Renderable;
+import com.space.invaders.models.SubjectMovement;
 import com.space.invaders.models.health.Health;
 import com.space.invaders.models.shot.Bullet;
 import com.space.invaders.models.weapon.Weapon;
@@ -20,16 +22,17 @@ import com.space.invaders.services.movement.MovementService;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Ship implements Collider, Renderable {
+public abstract class Ship implements Collider, Renderable, SubjectMovement {
 
     private boolean isPlayer;
     private Texture shipTexture;
     private Sprite sprite;
     private float WIDTH = BaseScreen.convertToPPM(100);
     private float HEIGHT = BaseScreen.convertToPPM(90);
-    private float LATERAL_SPEED = BaseScreen.convertToPPM(100);
-    private float SPEED = BaseScreen.convertToPPM(6);
+    private float LATERAL_SPEED = BaseScreen.convertToPPM(200);
+    private float SPEED = 10;
     private float LIFE = 100;
+    private List<ObserverMovement> observers;
     public Body body;
     protected World world;
 
@@ -72,6 +75,7 @@ public abstract class Ship implements Collider, Renderable {
         if(!isPlayer){
             sprite.flip(false,true);
         }
+        observers = new ArrayList<>();
     }
 
     public void render(SpriteBatch sb){
@@ -109,6 +113,16 @@ public abstract class Ship implements Collider, Renderable {
         }
     }
 
+    @Override
+    public void register(ObserverMovement observer) {
+        observers.add(observer);
+    }
+
+    @Override
+    public void exit(ObserverMovement observer) {
+        observers.remove(observer);
+    }
+
     public void createBody() {
         this.body = g.getBodyFactory().createSimpleShipBody(this, world);
     }
@@ -122,6 +136,13 @@ public abstract class Ship implements Collider, Renderable {
         if(movement != null){
             movement.move(this);
         }
+        for( ObserverMovement o: observers ){
+            o.update(body.getPosition());
+        }
+    }
+
+    public Vector2 getPosition(){
+        return body.getPosition();
     }
 
     @Override
@@ -141,6 +162,40 @@ public abstract class Ship implements Collider, Renderable {
 
     public void dispose(){
         shipTexture.dispose();
+    }
+
+    public void setMovement(MovementService movement) {
+        this.movement = movement;
+    }
+
+    public float getX() {
+        return sprite.getX();
+    }
+
+    public void setX(float x) {
+        sprite.setX(x);
+    }
+
+    public float getY() {
+        return sprite.getY();
+    }
+
+    public void setY(float y) {
+        sprite.setY(y);
+    }
+
+    public boolean isAlive() {
+        if(currentLife <= MathUtil.LIFE_EPS){
+            setAlive(false);
+        }
+        return isAlive;
+    }
+
+    public void setCurrentLife(float currentLife) {
+        this.currentLife = currentLife;
+        if(this.currentLife > this.LIFE){
+            this.currentLife = LIFE;
+        }
     }
 
     public Texture getShipTexture() {
@@ -186,33 +241,6 @@ public abstract class Ship implements Collider, Renderable {
 
     public MovementService getMovement() {
         return movement;
-    }
-
-    public void setMovement(MovementService movement) {
-        this.movement = movement;
-    }
-
-    public float getX() {
-        return sprite.getX();
-    }
-
-    public void setX(float x) {
-        sprite.setX(x);
-    }
-
-    public float getY() {
-        return sprite.getY();
-    }
-
-    public void setY(float y) {
-        sprite.setY(y);
-    }
-
-    public boolean isAlive() {
-        if(currentLife <= MathUtil.LIFE_EPS){
-            setAlive(false);
-        }
-        return isAlive;
     }
 
     public void setAlive(boolean alive) {
@@ -269,13 +297,6 @@ public abstract class Ship implements Collider, Renderable {
 
     public float getCurrentLife() {
         return currentLife;
-    }
-
-    public void setCurrentLife(float currentLife) {
-        this.currentLife = currentLife;
-        if(this.currentLife > this.LIFE){
-            this.currentLife = LIFE;
-        }
     }
 
     public Vector2 getHealthBarPosition() {

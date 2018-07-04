@@ -16,7 +16,7 @@ public abstract class Weapon {
     protected Ship ship;
     protected World world;
     protected long lastShot = 0;
-    protected long shotRate = 1;
+    protected float shotRate = 1;
 
     public Weapon(){}
 
@@ -41,6 +41,9 @@ public abstract class Weapon {
         return this;
     }
 
-
+    public Weapon changeShotRate(float shotRate){
+        this.shotRate = shotRate;
+        return this;
+    }
 
 }

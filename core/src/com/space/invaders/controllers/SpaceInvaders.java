@@ -31,6 +31,7 @@ public class SpaceInvaders extends Game {
     private Array<Renderable> elements;
     private Array<Ship> ships;
     private Level level;
+    private Ship player;
 
 
 	@Override
@@ -64,6 +65,9 @@ public class SpaceInvaders extends Game {
 	}
 
 	public void changeScreen(Class<? extends BaseScreen> screen){
+	    if(this.getScreen() != null) {
+            this.getScreen().dispose();
+        }
 	    this.setScreen(screens.get(screen));
     }
 
@@ -74,7 +78,7 @@ public class SpaceInvaders extends Game {
     }
 
 
-    public void update(float delta, Ship player){
+    public void update(float delta){
         shootService.shoot(player, elements, ships, delta);
 
         for(Renderable r: elements){
@@ -162,5 +166,13 @@ public class SpaceInvaders extends Game {
 
     public void setLevel(Level level) {
         this.level = level;
+    }
+
+    public Ship getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Ship player) {
+        this.player = player;
     }
 }

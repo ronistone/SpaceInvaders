@@ -7,6 +7,7 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.space.invaders.models.Collider;
 import com.space.invaders.models.Renderable;
 import com.space.invaders.models.ship.Ship;
+import com.space.invaders.services.factory.BodyFactory;
 import com.space.invaders.view.screen.BaseScreen;
 import com.space.invaders.controllers.SpaceInvaders;
 
@@ -35,15 +36,19 @@ public abstract class Bullet implements Collider, Renderable {
         createBody();
     }
 
+    public abstract void render(SpriteBatch batch);
+    public abstract void update();
+    public abstract void destruct();
+
     private void setPosition(float x, float y) {
         this.x = x;
         this.y = y;
     }
 
-    public abstract void render(SpriteBatch batch);
-    public abstract void update();
-    public abstract void createBody();
-    public abstract void destruct();
+    public void createBody(){
+        BodyFactory bodyFactory = new BodyFactory();
+        bodyFactory.createBulletBody(this, world);
+    }
 
     public boolean isLive(float widht, float height){
         if(getX() < 0 || getX() > widht) return false;
@@ -105,5 +110,13 @@ public abstract class Bullet implements Collider, Renderable {
 
     public void setDamage(float damage) {
         this.damage = damage;
+    }
+
+    public Vector2 getDirection() {
+        return direction;
+    }
+
+    public void setDirection(Vector2 direction) {
+        this.direction = direction;
     }
 }
