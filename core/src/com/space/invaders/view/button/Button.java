@@ -2,8 +2,8 @@ package com.space.invaders.view.button;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.space.invaders.Models.Renderable;
-import com.space.invaders.Models.Touchable;
+import com.space.invaders.models.Renderable;
+import com.space.invaders.models.Touchable;
 import com.space.invaders.controllers.SpaceInvaders;
 
 public abstract class Button implements Touchable, Renderable {

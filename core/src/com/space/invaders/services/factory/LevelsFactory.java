@@ -2,11 +2,11 @@ package com.space.invaders.services.factory;
 
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.OrderedMap;
-import com.space.invaders.Models.item.Items;
-import com.space.invaders.Models.level.EnemiesLevel;
-import com.space.invaders.Models.level.Level;
-import com.space.invaders.Models.ship.Ships;
-import com.space.invaders.Models.weapon.Weapons;
+import com.space.invaders.models.item.Items;
+import com.space.invaders.models.level.EnemiesLevel;
+import com.space.invaders.models.level.Level;
+import com.space.invaders.models.ship.Ships;
+import com.space.invaders.models.weapon.Weapons;
 import com.space.invaders.services.movement.Movements;
 
 public class LevelsFactory {

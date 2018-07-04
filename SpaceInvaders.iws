@@ -10,32 +10,43 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f6b503f-303e-4e0e-9112-412b58f32a96" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/core/src/com/space/invaders/view/button/LevelButton.java" />
+      <change beforePath="$PROJECT_DIR$/README" afterPath="$PROJECT_DIR$/README" />
       <change beforePath="$PROJECT_DIR$/SpaceInvaders.iws" afterPath="$PROJECT_DIR$/SpaceInvaders.iws" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/space/invaders/Models/health/Health.java" afterPath="$PROJECT_DIR$/core/src/com/space/invaders/Models/health/Health.java" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/space/invaders/Models/item/Heal.java" afterPath="$PROJECT_DIR$/core/src/com/space/invaders/Models/item/Heal.java" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/space/invaders/Models/level/LevelButton.java" afterPath="$PROJECT_DIR$/core/src/com/space/invaders/view/button/Button.java" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/space/invaders/Models/ship/Ship.java" afterPath="$PROJECT_DIR$/core/src/com/space/invaders/Models/ship/Ship.java" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/space/invaders/Models/ship/WhiteShip.java" afterPath="$PROJECT_DIR$/core/src/com/space/invaders/Models/ship/WhiteShip.java" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/space/invaders/Models/shot/Bullet.java" afterPath="$PROJECT_DIR$/core/src/com/space/invaders/Models/shot/Bullet.java" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/space/invaders/Models/weapon/ThreeShot.java" afterPath="$PROJECT_DIR$/core/src/com/space/invaders/Models/weapon/ThreeShot.java" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/space/invaders/Models/weapon/Weapon.java" afterPath="$PROJECT_DIR$/core/src/com/space/invaders/Models/weapon/Weapon.java" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/space/invaders/Util/HealthBarUtil.java" afterPath="$PROJECT_DIR$/core/src/com/space/invaders/util/HealthBarUtil.java" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/space/invaders/Util/MathUtil.java" afterPath="$PROJECT_DIR$/core/src/com/space/invaders/util/MathUtil.java" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/space/invaders/Util/Pair.java" afterPath="$PROJECT_DIR$/core/src/com/space/invaders/util/Pair.java" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/space/invaders/Views/BaseScreen.java" afterPath="$PROJECT_DIR$/core/src/com/space/invaders/view/screen/BaseScreen.java" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/space/invaders/Views/GameScreen.java" afterPath="$PROJECT_DIR$/core/src/com/space/invaders/view/screen/GameScreen.java" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/space/invaders/Views/LevelScreen.java" afterPath="$PROJECT_DIR$/core/src/com/space/invaders/view/screen/LevelScreen.java" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/space/invaders/Views/MainMenuScreen.java" afterPath="$PROJECT_DIR$/core/src/com/space/invaders/view/screen/MainMenuScreen.java" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/space/invaders/Models/Collider.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/space/invaders/Models/Renderable.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/space/invaders/Models/Touchable.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/space/invaders/Models/health/Health.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/space/invaders/Models/item/Heal.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/space/invaders/Models/item/Item.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/space/invaders/Models/item/Items.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/space/invaders/Models/level/EnemiesLevel.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/space/invaders/Models/level/Level.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/space/invaders/Models/ship/BlackShip.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/space/invaders/Models/ship/Ship.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/space/invaders/Models/ship/Ships.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/space/invaders/Models/ship/WhiteShip.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/space/invaders/Models/shot/Bullet.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/space/invaders/Models/shot/DefaultBullet.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/space/invaders/Models/shot/Shots.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/space/invaders/Models/weapon/SimpleShot.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/space/invaders/Models/weapon/ThreeShot.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/space/invaders/Models/weapon/Weapon.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/space/invaders/Models/weapon/Weapons.java" afterPath="" />
       <change beforePath="$PROJECT_DIR$/core/src/com/space/invaders/controllers/SpaceInvaders.java" afterPath="$PROJECT_DIR$/core/src/com/space/invaders/controllers/SpaceInvaders.java" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/space/invaders/services/ContactListenerCustom.java" afterPath="$PROJECT_DIR$/core/src/com/space/invaders/services/ContactListenerCustom.java" />
       <change beforePath="$PROJECT_DIR$/core/src/com/space/invaders/services/InputService.java" afterPath="$PROJECT_DIR$/core/src/com/space/invaders/services/InputService.java" />
       <change beforePath="$PROJECT_DIR$/core/src/com/space/invaders/services/factory/BodyFactory.java" afterPath="$PROJECT_DIR$/core/src/com/space/invaders/services/factory/BodyFactory.java" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/space/invaders/services/factory/LevelsFactory.java" afterPath="$PROJECT_DIR$/core/src/com/space/invaders/services/factory/LevelsFactory.java" />
       <change beforePath="$PROJECT_DIR$/core/src/com/space/invaders/services/level/LevelService.java" afterPath="$PROJECT_DIR$/core/src/com/space/invaders/services/level/LevelService.java" />
       <change beforePath="$PROJECT_DIR$/core/src/com/space/invaders/services/movement/FoolMovementService.java" afterPath="$PROJECT_DIR$/core/src/com/space/invaders/services/movement/FoolMovementService.java" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/space/invaders/services/movement/MovementService.java" afterPath="$PROJECT_DIR$/core/src/com/space/invaders/services/movement/MovementService.java" />
       <change beforePath="$PROJECT_DIR$/core/src/com/space/invaders/services/movement/PlayerMovementService.java" afterPath="$PROJECT_DIR$/core/src/com/space/invaders/services/movement/PlayerMovementService.java" />
       <change beforePath="$PROJECT_DIR$/core/src/com/space/invaders/services/shot/ShootService.java" afterPath="$PROJECT_DIR$/core/src/com/space/invaders/services/shot/ShootService.java" />
-      <change beforePath="$PROJECT_DIR$/out/production/android/android.apk" afterPath="$PROJECT_DIR$/out/production/android/android.apk" />
-      <change beforePath="$PROJECT_DIR$/out/production/android/android.unaligned.apk" afterPath="$PROJECT_DIR$/out/production/android/android.unaligned.apk" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/space/invaders/view/button/Button.java" afterPath="$PROJECT_DIR$/core/src/com/space/invaders/view/button/Button.java" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/space/invaders/view/button/LevelButton.java" afterPath="$PROJECT_DIR$/core/src/com/space/invaders/view/button/LevelButton.java" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/space/invaders/view/screen/GameScreen.java" afterPath="$PROJECT_DIR$/core/src/com/space/invaders/view/screen/GameScreen.java" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/space/invaders/view/screen/LevelScreen.java" afterPath="$PROJECT_DIR$/core/src/com/space/invaders/view/screen/LevelScreen.java" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/space/invaders/view/screen/MainMenuScreen.java" afterPath="$PROJECT_DIR$/core/src/com/space/invaders/view/screen/MainMenuScreen.java" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -96,7 +107,7 @@
       <file leaf-file-name="GameScreen.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/space/invaders/view/screen/GameScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
+            <state relative-caret-position="612">
               <caret line="51" column="13" lean-forward="false" selection-start-line="51" selection-start-column="13" selection-end-line="51" selection-end-column="13" />
               <folding>
                 <element signature="e#1177#1178#0" expanded="true" />
@@ -108,13 +119,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Ship.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/space/invaders/Models/ship/Ship.java">
+      <file leaf-file-name="Ship.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/core/src/com/space/invaders/models/ship/Ship.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="105" column="30" lean-forward="false" selection-start-line="105" selection-start-column="30" selection-end-line="105" selection-end-column="30" />
+            <state relative-caret-position="594">
+              <caret line="127" column="26" lean-forward="true" selection-start-line="127" selection-start-column="26" selection-end-line="127" selection-end-column="26" />
               <folding>
-                <marker date="1530513135077" expanded="true" signature="4874:4881" ph="{...}" />
+                <marker date="1530671592524" expanded="true" signature="4874:4881" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -123,7 +134,7 @@
       <file leaf-file-name="SpaceInvaders.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/space/invaders/controllers/SpaceInvaders.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
+            <state relative-caret-position="990">
               <caret line="72" column="45" lean-forward="false" selection-start-line="72" selection-start-column="45" selection-end-line="72" selection-end-column="45" />
               <folding>
                 <element signature="e#1831#1832#0" expanded="true" />
@@ -144,18 +155,17 @@
       <file leaf-file-name="LevelScreen.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/space/invaders/view/screen/LevelScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="479">
-              <caret line="77" column="22" lean-forward="false" selection-start-line="77" selection-start-column="22" selection-end-line="77" selection-end-column="22" />
+            <state relative-caret-position="54">
+              <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1027#1028#0" expanded="true" />
-                <element signature="e#1051#1052#0" expanded="true" />
+                <element signature="e#828#829#0" expanded="true" />
+                <element signature="e#852#853#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainMenuScreen.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MainMenuScreen.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/space/invaders/view/screen/MainMenuScreen.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="366">
@@ -166,6 +176,16 @@
                 <element signature="e#2273#2274#0" expanded="true" />
                 <element signature="e#2322#2323#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="162">
+              <caret line="9" column="16" lean-forward="false" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -243,8 +263,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/README" />
-        <option value="$PROJECT_DIR$/core/src/com/space/invaders/Models/weapon/weapon.java" />
         <option value="$PROJECT_DIR$/core/src/com/space/invaders/services/movement/PlayerMovementService.java" />
         <option value="$PROJECT_DIR$/core/src/com/space/invaders/services/ContactListenerCustom.java" />
         <option value="$PROJECT_DIR$/core/src/com/space/invaders/services/movement/FoolMovimentService.java" />
@@ -290,10 +308,12 @@
         <option value="$PROJECT_DIR$/core/src/com/space/invaders/view/MainMenuScreen.java" />
         <option value="$PROJECT_DIR$/core/src/com/space/invaders/view/button/MenuButton.java" />
         <option value="$PROJECT_DIR$/core/src/com/space/invaders/view/screen/BaseScreen.java" />
-        <option value="$PROJECT_DIR$/core/src/com/space/invaders/view/screen/LevelScreen.java" />
         <option value="$PROJECT_DIR$/core/src/com/space/invaders/view/button/LevelButton.java" />
         <option value="$PROJECT_DIR$/core/src/com/space/invaders/view/button/Button.java" />
         <option value="$PROJECT_DIR$/core/src/com/space/invaders/view/screen/MainMenuScreen.java" />
+        <option value="$PROJECT_DIR$/README" />
+        <option value="$PROJECT_DIR$/core/src/com/space/invaders/view/screen/LevelScreen.java" />
+        <option value="$PROJECT_DIR$/core/src/com/space/invaders/models/ship/Ship.java" />
       </list>
     </option>
   </component>
@@ -342,6 +362,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -352,17 +374,6 @@
             <path>
               <item name="SpaceInvaders" type="b2602c69:ProjectViewProjectNode" />
               <item name="SpaceInvaders" type="462c0819:PsiDirectoryNode" />
-              <item name="android" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SpaceInvaders" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SpaceInvaders" type="462c0819:PsiDirectoryNode" />
-              <item name="android" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SpaceInvaders" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SpaceInvaders" type="462c0819:PsiDirectoryNode" />
               <item name="core" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -376,23 +387,6 @@
               <item name="SpaceInvaders" type="462c0819:PsiDirectoryNode" />
               <item name="core" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SpaceInvaders" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SpaceInvaders" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="space" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SpaceInvaders" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SpaceInvaders" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="space" type="462c0819:PsiDirectoryNode" />
               <item name="invaders" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -400,72 +394,15 @@
               <item name="SpaceInvaders" type="462c0819:PsiDirectoryNode" />
               <item name="core" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="space" type="462c0819:PsiDirectoryNode" />
               <item name="invaders" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SpaceInvaders" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SpaceInvaders" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="space" type="462c0819:PsiDirectoryNode" />
-              <item name="invaders" type="462c0819:PsiDirectoryNode" />
-              <item name="Models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SpaceInvaders" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SpaceInvaders" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="space" type="462c0819:PsiDirectoryNode" />
-              <item name="invaders" type="462c0819:PsiDirectoryNode" />
-              <item name="Models" type="462c0819:PsiDirectoryNode" />
-              <item name="level" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SpaceInvaders" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SpaceInvaders" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="space" type="462c0819:PsiDirectoryNode" />
-              <item name="invaders" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SpaceInvaders" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SpaceInvaders" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="space" type="462c0819:PsiDirectoryNode" />
-              <item name="invaders" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="button" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SpaceInvaders" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SpaceInvaders" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="space" type="462c0819:PsiDirectoryNode" />
-              <item name="invaders" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="screen" type="462c0819:PsiDirectoryNode" />
+              <item name="services" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
-      <pane id="Scratches" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -624,12 +561,13 @@
       <workItem from="1527731733292" duration="60468000" />
       <workItem from="1528203012549" duration="3240000" />
       <workItem from="1529970789796" duration="7535000" />
-      <workItem from="1530499605681" duration="13153000" />
+      <workItem from="1530499605681" duration="13828000" />
+      <workItem from="1530671352287" duration="262000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="155132000" />
+    <option name="totallyTimeSpent" value="156069000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -642,7 +580,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1366" height="741" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -659,7 +596,6 @@
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928678" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39929947" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924694" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32749563" sideWeight="0.4969651" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -667,8 +603,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924694" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32749563" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23065251" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924694" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23065251" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928678" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -676,7 +611,9 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962063" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32749563" sideWeight="0.4969651" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924694" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -731,11 +668,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/captures/com.space.invaders_2018.06.03_21.46-1.hprof">
-      <provider selected="true" editor-type-id="capture-editor">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/captures/com.space.invaders_2018.06.03_21.46.hprof">
       <provider selected="true" editor-type-id="capture-editor">
         <state />
@@ -746,14 +678,14 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/space/invaders/Models/item/Items.java">
+    <entry file="file://$PROJECT_DIR$/core/src/com/space/invaders/models/item/Items.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/space/invaders/Models/weapon/Weapons.java">
+    <entry file="file://$PROJECT_DIR$/core/src/com/space/invaders/models/weapon/Weapons.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
@@ -765,7 +697,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="5" column="18" lean-forward="false" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -794,7 +725,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="12" column="40" lean-forward="false" selection-start-line="12" selection-start-column="40" selection-end-line="12" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -806,7 +736,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/space/invaders/Models/level/EnemiesLevel.java">
+    <entry file="file://$PROJECT_DIR$/core/src/com/space/invaders/models/level/EnemiesLevel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="22" column="27" lean-forward="false" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
@@ -831,7 +761,7 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/space/invaders/Models/health/Health.java">
+    <entry file="file://$PROJECT_DIR$/core/src/com/space/invaders/models/health/Health.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="486">
           <caret line="47" column="42" lean-forward="false" selection-start-line="47" selection-start-column="42" selection-end-line="47" selection-end-column="42" />
@@ -839,7 +769,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/space/invaders/Models/ship/WhiteShip.java">
+    <entry file="file://$PROJECT_DIR$/core/src/com/space/invaders/models/ship/WhiteShip.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
           <caret line="26" column="36" lean-forward="false" selection-start-line="26" selection-start-column="36" selection-end-line="26" selection-end-column="36" />
@@ -855,7 +785,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/space/invaders/Models/shot/Shots.java">
+    <entry file="file://$PROJECT_DIR$/core/src/com/space/invaders/models/shot/Shots.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="4" column="17" lean-forward="false" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
@@ -863,7 +793,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/space/invaders/Models/Collider.java">
+    <entry file="file://$PROJECT_DIR$/core/src/com/space/invaders/models/Collider.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="5" column="29" lean-forward="false" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
@@ -879,7 +809,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/space/invaders/Models/weapon/SimpleShot.java">
+    <entry file="file://$PROJECT_DIR$/core/src/com/space/invaders/models/weapon/SimpleShot.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
           <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
@@ -887,7 +817,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/space/invaders/Models/weapon/ThreeShot.java">
+    <entry file="file://$PROJECT_DIR$/core/src/com/space/invaders/models/weapon/ThreeShot.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
           <caret line="29" column="31" lean-forward="false" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="31" />
@@ -895,7 +825,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/space/invaders/Models/shot/DefaultBullet.java">
+    <entry file="file://$PROJECT_DIR$/core/src/com/space/invaders/models/shot/DefaultBullet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="335">
           <caret line="85" column="23" lean-forward="false" selection-start-line="85" selection-start-column="23" selection-end-line="85" selection-end-column="23" />
@@ -918,19 +848,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/space/invaders/services/Input.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/space/invaders/services/Input.java" />
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx/1.9.8/bac17f395be5010619b31280fe84e9f53118d0b9/gdx-1.9.8-sources.jar!/com/badlogic/gdx/scenes/scene2d/Touchable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
           <caret line="20" column="12" lean-forward="false" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -938,11 +860,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="24" column="13" lean-forward="false" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/space/invaders/Models/item/Heal.java">
+    <entry file="file://$PROJECT_DIR$/core/src/com/space/invaders/models/item/Heal.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="587">
           <caret line="59" column="10" lean-forward="false" selection-start-line="59" selection-start-column="10" selection-end-line="59" selection-end-column="10" />
@@ -950,7 +871,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/space/invaders/Models/shot/Bullet.java">
+    <entry file="file://$PROJECT_DIR$/core/src/com/space/invaders/models/shot/Bullet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="299">
           <caret line="104" column="17" lean-forward="false" selection-start-line="104" selection-start-column="17" selection-end-line="104" selection-end-column="17" />
@@ -965,11 +886,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="22" column="16" lean-forward="false" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/space/invaders/Models/weapon/Weapon.java">
+    <entry file="file://$PROJECT_DIR$/core/src/com/space/invaders/models/weapon/Weapon.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="21" column="31" lean-forward="false" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
@@ -977,7 +897,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/space/invaders/Models/ship/BlackShip.java">
+    <entry file="file://$PROJECT_DIR$/core/src/com/space/invaders/models/ship/BlackShip.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
           <caret line="11" column="26" lean-forward="true" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
@@ -988,7 +908,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/space/invaders/Models/ship/Ships.java">
+    <entry file="file://$PROJECT_DIR$/core/src/com/space/invaders/models/ship/Ships.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
           <caret line="2" column="12" lean-forward="false" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
@@ -1004,7 +924,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/space/invaders/Models/level/Level.java">
+    <entry file="file://$PROJECT_DIR$/core/src/com/space/invaders/models/level/Level.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="393">
           <caret line="29" column="30" lean-forward="false" selection-start-line="29" selection-start-column="30" selection-end-line="29" selection-end-column="30" />
@@ -1012,7 +932,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/space/invaders/Models/Renderable.java">
+    <entry file="file://$PROJECT_DIR$/core/src/com/space/invaders/models/Renderable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="7" column="16" lean-forward="false" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
@@ -1020,7 +940,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/space/invaders/Models/Touchable.java">
+    <entry file="file://$PROJECT_DIR$/core/src/com/space/invaders/models/Touchable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="5" column="16" lean-forward="false" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
@@ -1028,14 +948,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/space/invaders/view/button/MenuButton.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/space/invaders/view/button/MenuButton.java" />
     <entry file="file://$PROJECT_DIR$/core/src/com/space/invaders/services/InputService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -1048,7 +961,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="249">
           <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1067,44 +979,15 @@
         <state relative-caret-position="65">
           <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding>
-            <element signature="e#665#666#0" expanded="false" />
-            <element signature="e#715#716#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/space/invaders/controllers/SpaceInvaders.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="72" column="45" lean-forward="false" selection-start-line="72" selection-start-column="45" selection-end-line="72" selection-end-column="45" />
-          <folding>
-            <element signature="e#1831#1832#0" expanded="true" />
-            <element signature="e#1855#1856#0" expanded="true" />
-            <element signature="e#2137#2138#0" expanded="true" />
-            <element signature="e#2185#2186#0" expanded="true" />
-            <element signature="e#2872#2873#0" expanded="true" />
-            <element signature="e#2923#2924#0" expanded="true" />
-            <element signature="e#4412#4413#0" expanded="true" />
-            <element signature="e#4440#4441#0" expanded="true" />
-            <element signature="e#4481#4482#0" expanded="true" />
-            <element signature="e#4515#4516#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/space/invaders/Models/ship/Ship.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="105" column="30" lean-forward="false" selection-start-line="105" selection-start-column="30" selection-end-line="105" selection-end-column="30" />
-          <folding>
-            <marker date="1530513135077" expanded="true" signature="4874:4881" ph="{...}" />
+            <element signature="e#577#578#0" expanded="false" />
+            <element signature="e#627#628#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/space/invaders/view/screen/GameScreen.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
+        <state relative-caret-position="612">
           <caret line="51" column="13" lean-forward="false" selection-start-line="51" selection-start-column="13" selection-end-line="51" selection-end-column="13" />
           <folding>
             <element signature="e#1177#1178#0" expanded="true" />
@@ -1131,21 +1014,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/space/invaders/view/screen/LevelScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="479">
-          <caret line="77" column="22" lean-forward="false" selection-start-line="77" selection-start-column="22" selection-end-line="77" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1027#1028#0" expanded="true" />
-            <element signature="e#1051#1052#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/android/assets/start.png">
       <provider selected="true" editor-type-id="images">
         <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="9" column="16" lean-forward="false" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/space/invaders/view/screen/MainMenuScreen.java">
@@ -1157,6 +1036,46 @@
             <element signature="e#1786#1787#0" expanded="true" />
             <element signature="e#2273#2274#0" expanded="true" />
             <element signature="e#2322#2323#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/space/invaders/view/screen/LevelScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding>
+            <element signature="e#828#829#0" expanded="true" />
+            <element signature="e#852#853#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/space/invaders/controllers/SpaceInvaders.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="990">
+          <caret line="72" column="45" lean-forward="false" selection-start-line="72" selection-start-column="45" selection-end-line="72" selection-end-column="45" />
+          <folding>
+            <element signature="e#1831#1832#0" expanded="true" />
+            <element signature="e#1855#1856#0" expanded="true" />
+            <element signature="e#2137#2138#0" expanded="true" />
+            <element signature="e#2185#2186#0" expanded="true" />
+            <element signature="e#2872#2873#0" expanded="true" />
+            <element signature="e#2923#2924#0" expanded="true" />
+            <element signature="e#4412#4413#0" expanded="true" />
+            <element signature="e#4440#4441#0" expanded="true" />
+            <element signature="e#4481#4482#0" expanded="true" />
+            <element signature="e#4515#4516#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/space/invaders/models/ship/Ship.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="127" column="26" lean-forward="true" selection-start-line="127" selection-start-column="26" selection-end-line="127" selection-end-column="26" />
+          <folding>
+            <marker date="1530671592524" expanded="true" signature="4874:4881" ph="{...}" />
           </folding>
         </state>
       </provider>

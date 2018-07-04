@@ -3,20 +3,20 @@ package com.space.invaders.services.level;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.OrderedMap;
 import com.badlogic.gdx.utils.TimeUtils;
-import com.space.invaders.Models.Renderable;
-import com.space.invaders.Models.item.Heal;
-import com.space.invaders.Models.item.Item;
-import com.space.invaders.Models.item.Items;
-import com.space.invaders.Models.level.EnemiesLevel;
-import com.space.invaders.Models.level.Level;
-import com.space.invaders.Models.ship.BlackShip;
-import com.space.invaders.Models.ship.Ship;
-import com.space.invaders.Models.ship.Ships;
-import com.space.invaders.Models.ship.WhiteShip;
-import com.space.invaders.Models.weapon.SimpleShot;
-import com.space.invaders.Models.weapon.ThreeShot;
-import com.space.invaders.Models.weapon.Weapon;
-import com.space.invaders.Models.weapon.Weapons;
+import com.space.invaders.models.Renderable;
+import com.space.invaders.models.item.Heal;
+import com.space.invaders.models.item.Item;
+import com.space.invaders.models.item.Items;
+import com.space.invaders.models.level.EnemiesLevel;
+import com.space.invaders.models.level.Level;
+import com.space.invaders.models.ship.BlackShip;
+import com.space.invaders.models.ship.Ship;
+import com.space.invaders.models.ship.Ships;
+import com.space.invaders.models.ship.WhiteShip;
+import com.space.invaders.models.weapon.SimpleShot;
+import com.space.invaders.models.weapon.ThreeShot;
+import com.space.invaders.models.weapon.Weapon;
+import com.space.invaders.models.weapon.Weapons;
 import com.space.invaders.util.MathUtil;
 import com.space.invaders.view.screen.BaseScreen;
 import com.space.invaders.controllers.SpaceInvaders;
@@ -55,7 +55,7 @@ public class LevelService {
 
     public void create(){
         try {
-            Ship ship = (Ship) Class.forName("com.space.invaders.Models.ship.WhiteShip").newInstance();
+            Ship ship = (Ship) Class.forName("com.space.invaders.models.ship.WhiteShip").newInstance();
             ship.init(g,false, BaseScreen.VIRTUAL_WIDHT/2, BaseScreen.VIRTUAL_HEIGHT/2);
             e.add(ship);
             s.add(ship);

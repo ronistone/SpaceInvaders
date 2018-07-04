@@ -1,4 +1,4 @@
-package com.space.invaders.Models.weapon;
+package com.space.invaders.models.weapon;
 
 public enum Weapons {
 

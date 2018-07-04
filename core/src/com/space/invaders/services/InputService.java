@@ -1,7 +1,7 @@
 package com.space.invaders.services;
 
 import com.badlogic.gdx.InputProcessor;
-import com.space.invaders.Models.Touchable;
+import com.space.invaders.models.Touchable;
 import com.space.invaders.view.screen.BaseScreen;
 
 import java.util.List;

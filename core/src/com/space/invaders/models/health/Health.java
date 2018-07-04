@@ -1,4 +1,4 @@
-package com.space.invaders.Models.health;
+package com.space.invaders.models.health;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;

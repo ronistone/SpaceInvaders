@@ -1,8 +1,6 @@
 package com.space.invaders.view.button;
 
-import com.badlogic.gdx.graphics.Texture;
-import com.space.invaders.Models.level.Level;
-import com.space.invaders.view.button.Button;
+import com.space.invaders.models.level.Level;
 import com.space.invaders.view.screen.GameScreen;
 import com.space.invaders.controllers.SpaceInvaders;
 

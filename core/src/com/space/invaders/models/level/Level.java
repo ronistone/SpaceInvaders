@@ -1,12 +1,9 @@
-package com.space.invaders.Models.level;
+package com.space.invaders.models.level;
 
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.OrderedMap;
-import com.space.invaders.Models.item.Items;
-import com.space.invaders.Models.ship.Ships;
-
-
-import java.util.HashMap;
+import com.space.invaders.models.item.Items;
+import com.space.invaders.models.ship.Ships;
 
 public class Level {
 

@@ -1,4 +1,4 @@
-package com.space.invaders.Models.ship;
+package com.space.invaders.models.ship;
 
 public enum Ships {
 

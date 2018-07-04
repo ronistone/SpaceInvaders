@@ -1,7 +1,7 @@
-package com.space.invaders.Models.level;
+package com.space.invaders.models.level;
 
-import com.space.invaders.Models.ship.Ships;
-import com.space.invaders.Models.weapon.Weapons;
+import com.space.invaders.models.ship.Ships;
+import com.space.invaders.models.weapon.Weapons;
 import com.space.invaders.services.movement.Movements;
 
 public class EnemiesLevel {

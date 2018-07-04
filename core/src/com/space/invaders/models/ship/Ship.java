@@ -1,4 +1,4 @@
-package com.space.invaders.Models.ship;
+package com.space.invaders.models.ship;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
@@ -7,11 +7,11 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
-import com.space.invaders.Models.Collider;
-import com.space.invaders.Models.Renderable;
-import com.space.invaders.Models.health.Health;
-import com.space.invaders.Models.shot.Bullet;
-import com.space.invaders.Models.weapon.Weapon;
+import com.space.invaders.models.Collider;
+import com.space.invaders.models.Renderable;
+import com.space.invaders.models.health.Health;
+import com.space.invaders.models.shot.Bullet;
+import com.space.invaders.models.weapon.Weapon;
 import com.space.invaders.util.MathUtil;
 import com.space.invaders.view.screen.BaseScreen;
 import com.space.invaders.controllers.SpaceInvaders;

@@ -4,8 +4,7 @@ import com.badlogic.gdx.physics.box2d.Contact;
 import com.badlogic.gdx.physics.box2d.ContactImpulse;
 import com.badlogic.gdx.physics.box2d.ContactListener;
 import com.badlogic.gdx.physics.box2d.Manifold;
-import com.space.invaders.Models.Collider;
-import com.space.invaders.Models.ship.Ship;
+import com.space.invaders.models.Collider;
 
 public class ContactListenerCustom implements ContactListener {
 

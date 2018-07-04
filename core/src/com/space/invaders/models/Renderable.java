@@ -1,4 +1,4 @@
-package com.space.invaders.Models;
+package com.space.invaders.models;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 

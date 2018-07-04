@@ -8,11 +8,11 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.*;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
-import com.space.invaders.Models.Renderable;
-import com.space.invaders.Models.weapon.ThreeShot;
+import com.space.invaders.models.Renderable;
+import com.space.invaders.models.weapon.ThreeShot;
 import com.space.invaders.controllers.SpaceInvaders;
-import com.space.invaders.Models.ship.Ship;
-import com.space.invaders.Models.ship.BlackShip;
+import com.space.invaders.models.ship.Ship;
+import com.space.invaders.models.ship.BlackShip;
 import com.space.invaders.services.movement.PlayerMovementService;
 
 import java.util.concurrent.TimeUnit;

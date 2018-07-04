@@ -1,7 +1,7 @@
 package com.space.invaders.services.movement;
 
 import com.badlogic.gdx.Gdx;
-import com.space.invaders.Models.ship.Ship;
+import com.space.invaders.models.ship.Ship;
 import com.space.invaders.view.screen.BaseScreen;
 
 public class PlayerMovementService extends MovementService {

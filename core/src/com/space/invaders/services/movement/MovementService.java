@@ -1,6 +1,6 @@
 package com.space.invaders.services.movement;
 
-import com.space.invaders.Models.ship.Ship;
+import com.space.invaders.models.ship.Ship;
 
 public abstract class MovementService {
 

@@ -1,10 +1,10 @@
-package com.space.invaders.Models.item;
+package com.space.invaders.models.item;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.physics.box2d.Body;
-import com.space.invaders.Models.ship.Ship;
+import com.space.invaders.models.ship.Ship;
 import com.space.invaders.view.screen.BaseScreen;
 import com.space.invaders.controllers.SpaceInvaders;
 

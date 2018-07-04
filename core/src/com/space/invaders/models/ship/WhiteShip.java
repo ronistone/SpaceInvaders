@@ -1,4 +1,4 @@
-package com.space.invaders.Models.ship;
+package com.space.invaders.models.ship;
 
 import com.space.invaders.controllers.SpaceInvaders;
 

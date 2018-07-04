@@ -1,11 +1,6 @@
-package com.space.invaders.Models.ship;
+package com.space.invaders.models.ship;
 
-import com.badlogic.gdx.physics.box2d.*;
-import com.space.invaders.Models.shot.Bullet;
 import com.space.invaders.controllers.SpaceInvaders;
-import com.space.invaders.services.factory.BodyFactory;
-
-import java.util.Map;
 
 public class BlackShip extends Ship {
 
