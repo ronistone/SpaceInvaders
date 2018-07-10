@@ -60,9 +60,9 @@ public class MainMenuScreen extends BaseScreen {
 
         buttons = new ArrayList<>();
 
-        float t = convertToPPM(200);
+        float t = convertToPPM(300);
 
-        buttons.add(new Button(game, (VIRTUAL_WIDHT/2) - (t/2), VIRTUAL_HEIGHT/2, 2*t, t) {
+        buttons.add(new Button(game, (VIRTUAL_WIDHT/2) - t, VIRTUAL_HEIGHT/2 - t/2, 1.5f*t, t) {
             @Override
             public void loadTexture() {
                 texture = game.getTexture("start.png");

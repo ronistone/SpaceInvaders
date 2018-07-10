@@ -1,5 +1,6 @@
 package com.space.invaders.services;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.space.invaders.models.Touchable;
 import com.space.invaders.view.screen.BaseScreen;
@@ -39,7 +40,7 @@ public class InputService implements InputProcessor {
 
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-
+        screenY = Gdx.graphics.getHeight() - screenY;
         float x = BaseScreen.convertToPPM(screenX);
         float y = BaseScreen.convertToPPM(screenY);
         for( Touchable t: touchables){

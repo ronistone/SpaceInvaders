@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
+import com.badlogic.gdx.utils.TimeUtils;
 import com.space.invaders.models.Collider;
 import com.space.invaders.models.ObserverMovement;
 import com.space.invaders.models.Renderable;
@@ -29,9 +30,12 @@ public abstract class Ship implements Collider, Renderable, SubjectMovement {
     private Sprite sprite;
     private float WIDTH = BaseScreen.convertToPPM(100);
     private float HEIGHT = BaseScreen.convertToPPM(90);
-    private float LATERAL_SPEED = BaseScreen.convertToPPM(200);
-    private float SPEED = 10;
+    private float LATERAL_SPEED = BaseScreen.convertToPPM(400);
+    private float SPEED = 100;
     private float LIFE = 100;
+    private long points = 0;
+    private final long POINT = 10;
+    private long createTime;
     private List<ObserverMovement> observers;
     public Body body;
     protected World world;
@@ -76,6 +80,7 @@ public abstract class Ship implements Collider, Renderable, SubjectMovement {
             sprite.flip(false,true);
         }
         observers = new ArrayList<>();
+        createTime = TimeUtils.millis() - g.getTimeCurrent();
     }
 
     public void render(SpriteBatch sb){
@@ -198,6 +203,10 @@ public abstract class Ship implements Collider, Renderable, SubjectMovement {
         }
     }
 
+    public void addPoints(long time, long points){
+        this.points += ((Math.floor(time/15000)+1) * points);
+    }
+
     public Texture getShipTexture() {
         return shipTexture;
     }
@@ -253,6 +262,10 @@ public abstract class Ship implements Collider, Renderable, SubjectMovement {
 
     public void setWeapon(Weapon weapon) {
         this.weapon = weapon;
+        if( weapon != null && isPlayer ){
+            weapon.changeShotRate(weapon.getShotRate()*1.8f);
+            weapon.setSPEED(weapon.getSPEED()*1.5f);
+        }
     }
 
     public SpaceInvaders getGame() {
@@ -323,6 +336,17 @@ public abstract class Ship implements Collider, Renderable, SubjectMovement {
         this.health = health;
     }
 
+    public long getPoints() {
+        return points;
+    }
+
+    public long getPOINT() {
+        return POINT;
+    }
+
+    public long getCreateTime() {
+        return createTime;
+    }
 }
 
 

@@ -62,8 +62,12 @@ public class DefaultBullet extends Bullet {
     @Override
     public void collide(Object a) {
         if(a instanceof Ship && owner.isPlayer() != ((Ship) a).isPlayer()){
+            Ship c = (Ship) a;
             isAlive = false;
-            ((Ship)a).hit(getDamage());
+            c.hit(getDamage());
+            if(!c.isAlive()){
+                this.owner.addPoints(c.getCreateTime(), c.getPOINT());
+            }
         }
     }
 }

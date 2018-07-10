@@ -9,7 +9,7 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 import com.space.invaders.controllers.SpaceInvaders;
 
 public abstract class BaseScreen extends ScreenAdapter {
-    public static final float PPM = 40;
+    public static final float PPM = 10.0f;
     public static final float VIRTUAL_WIDHT = Gdx.graphics.getWidth()/ PPM;
     public static final float VIRTUAL_HEIGHT = Gdx.graphics.getHeight()/ PPM;
     protected SpaceInvaders game;

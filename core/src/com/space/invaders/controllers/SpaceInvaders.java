@@ -9,6 +9,8 @@ import com.badlogic.gdx.utils.ObjectMap;
 import com.space.invaders.models.Renderable;
 import com.space.invaders.models.level.Level;
 import com.space.invaders.models.ship.Ship;
+import com.space.invaders.services.level.LevelService;
+import com.space.invaders.services.level.impl.LevelServiceImpl;
 import com.space.invaders.view.screen.BaseScreen;
 import com.space.invaders.view.screen.GameScreen;
 import com.space.invaders.view.screen.LevelScreen;
@@ -16,7 +18,6 @@ import com.space.invaders.view.screen.MainMenuScreen;
 import com.space.invaders.services.AssetsService;
 import com.space.invaders.services.ContactListenerCustom;
 import com.space.invaders.services.factory.BodyFactory;
-import com.space.invaders.services.level.LevelService;
 import com.space.invaders.services.shot.ShootService;
 
 
@@ -44,7 +45,6 @@ public class SpaceInvaders extends Game {
 	    bodyFactory = new BodyFactory();
         world = new World(new Vector2(0,0), true);
         world.setContactListener(new ContactListenerCustom());
-        levelService = new LevelService(this);
 	    loadScreens();
         changeScreen(MainMenuScreen.class);
 	}
@@ -94,6 +94,14 @@ public class SpaceInvaders extends Game {
 
     public Texture getTexture(String path){
 	    return textureManager.getTexture(path);
+    }
+
+    public long getPoints(){
+	    return player.getPoints();
+    }
+
+    public long getTimeCurrent(){
+	    return ((GameScreen)screens.get(GameScreen.class)).getInitialTime();
     }
 
     public World getWorld() {

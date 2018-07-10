@@ -63,4 +63,8 @@ public class LevelsFactory {
         level.setEnemiesTime(tEnemies);
         return level;
     }
+
+    public Level createUniqueLevel() {
+        return createFirstLevel();
+    }
 }

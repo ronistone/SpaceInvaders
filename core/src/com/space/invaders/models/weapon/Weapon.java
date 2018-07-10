@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 
 public abstract class Weapon {
 
-    protected float SPEED = BaseScreen.convertToPPM(300);
+    protected float SPEED = BaseScreen.convertToPPM(400);
     protected Ship ship;
     protected World world;
     protected long lastShot = 0;
@@ -46,4 +46,19 @@ public abstract class Weapon {
         return this;
     }
 
+    public float getSPEED() {
+        return SPEED;
+    }
+
+    public void setSPEED(float SPEED) {
+        this.SPEED = SPEED;
+    }
+
+    public float getShotRate() {
+        return shotRate;
+    }
+
+    public void setShotRate(float shotRate) {
+        this.shotRate = shotRate;
+    }
 }

@@ -2,6 +2,8 @@ package com.space.invaders.view.screen;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.*;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
@@ -31,6 +33,8 @@ public class GameScreen extends BaseScreen {
     private Long totalTime;
     private Long initialTime;
     private Long endTime;
+    private BitmapFont font;
+    private GlyphLayout glyphLayout;
 
 
     private GameScreen(SpaceInvaders g) {
@@ -64,6 +68,9 @@ public class GameScreen extends BaseScreen {
         game.getElements().add(player);
         game.setPlayer(player);
         endTime = null;
+        font = new BitmapFont();
+        font.getData().setScale(0.7f);
+        glyphLayout = new GlyphLayout();
 
     }
 
@@ -90,7 +97,10 @@ public class GameScreen extends BaseScreen {
                 }
                 showEndGame();
             }
-
+            glyphLayout.setText(font, String.valueOf(player.getPoints()));
+            font.draw(batch, glyphLayout,
+                    VIRTUAL_WIDHT/2 - glyphLayout.width/2,
+                    VIRTUAL_HEIGHT - glyphLayout.height - convertToPPM(10));
             batch.end();
 
             debug.render(world, camera.combined);
@@ -150,5 +160,9 @@ public class GameScreen extends BaseScreen {
         game.getShips().clear();
         game.getElements().clear();
         game.setLevel(null);
+    }
+
+    public Long getInitialTime() {
+        return initialTime;
     }
 }

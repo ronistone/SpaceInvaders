@@ -6,6 +6,8 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.space.invaders.models.Renderable;
 import com.space.invaders.models.Touchable;
+import com.space.invaders.view.button.Button;
+import com.space.invaders.view.button.InfiniteLevelButton;
 import com.space.invaders.view.button.LevelButton;
 import com.space.invaders.controllers.SpaceInvaders;
 import com.space.invaders.services.InputService;
@@ -19,7 +21,7 @@ public class LevelScreen extends BaseScreen {
     private static LevelScreen instance;
 
     private SpriteBatch batch;
-    private List<LevelButton> renderables;
+    private List<Button> renderables;
     private List<Touchable> levels;
     private Texture background;
 
@@ -57,17 +59,18 @@ public class LevelScreen extends BaseScreen {
         LevelsFactory levelsFactory = new LevelsFactory();
         background = game.getTexture("background.jpg");
 
-        float t = convertToPPM(200);
-        float yA = (VIRTUAL_HEIGHT/2);
-        float x = (VIRTUAL_WIDHT/2) - (t/2);
-        float yB = (yA - convertToPPM(220));
+        float xh = convertToPPM(200);
+        float yh = convertToPPM(220);
+        float y = VIRTUAL_HEIGHT - (VIRTUAL_HEIGHT/3);
+        float x = (VIRTUAL_WIDHT/4) - (xh/2);
 
 
-        renderables.add(new LevelButton(game, levelsFactory.createFirstLevel(), x, yA, t, t));
-        renderables.add(new LevelButton(game, levelsFactory.createSecondLevel(), x, yB, t, t));
+        renderables.add(new LevelButton(game, levelsFactory.createFirstLevel(), x, y - yh, xh, xh, "Level 1"));
+        renderables.add(new LevelButton(game, levelsFactory.createSecondLevel(), x, y - (2*yh), xh, xh, "Level 2"));
+        renderables.add(new InfiniteLevelButton(game, x, y - (3 * yh), xh, xh, "Arcade"));
 
         levels = new ArrayList<>();
-        for(LevelButton l: renderables){
+        for(Button l: renderables){
             levels.add(l);
         }
 

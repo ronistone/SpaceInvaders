@@ -1,10 +1,13 @@
 package com.space.invaders.view.button;
 
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.space.invaders.models.Renderable;
 import com.space.invaders.models.Touchable;
 import com.space.invaders.controllers.SpaceInvaders;
+import com.space.invaders.models.level.Level;
 
 public abstract class Button implements Touchable, Renderable {
 
@@ -13,7 +16,12 @@ public abstract class Button implements Touchable, Renderable {
     protected float y;
     protected float widht;
     protected float height;
+    protected float finalWidht;
     protected SpaceInvaders g;
+    protected Level l;
+    protected BitmapFont font;
+    protected GlyphLayout glyphLayout;
+    protected String msg;
 
 
     public Button(SpaceInvaders game, float x, float y, float widht, float height) {
@@ -22,7 +30,11 @@ public abstract class Button implements Touchable, Renderable {
         this.y = y;
         this.widht = widht;
         this.height = height;
+        finalWidht = widht;
         loadTexture();
+
+        font = new BitmapFont();
+        glyphLayout = new GlyphLayout();
     }
 
     @Override
@@ -73,8 +85,8 @@ public abstract class Button implements Touchable, Renderable {
 
     @Override
     public boolean isTouch(float x, float y) {
-        if(x >= this.x && x <= this.x + this.height
-                && y >= this.y && y <= this.y + this.widht){
+        if(x >= this.x && x <= this.x + this.finalWidht
+                && y >= this.y && y <= this.y + this.height){
             return true;
         }
 
