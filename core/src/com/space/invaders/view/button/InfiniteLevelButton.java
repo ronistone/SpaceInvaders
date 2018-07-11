@@ -37,7 +37,7 @@ public class InfiniteLevelButton extends Button {
     public void doAction() {
 //        Gdx.app.log("CLICOU NO BOTÃO", msg);
         g.setLevel(l);
-        g.setLevelService(new LevelServiceImpl(g));
+        g.setLevelService(new SingleLevelService(g));
         g.changeScreen(GameScreen.class);
     }
 }

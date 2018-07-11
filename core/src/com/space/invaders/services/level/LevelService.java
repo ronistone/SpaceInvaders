@@ -114,10 +114,13 @@ public abstract class LevelService {
 
     protected abstract void callCreateShips(Level level, long totalTime) throws InstantiationException, IllegalAccessException;
 
-    protected void createShip(Level level, Long t) throws IllegalAccessException, InstantiationException {
+    protected void createShip(Level level, Long t, Integer num) throws IllegalAccessException, InstantiationException {
         Ship s;
         EnemiesLevel e = level.getEnemiesTime().get(t);
-        for(int i=0;i<e.getNum();i++){
+        if(num == null){
+            num = e.getNum();
+        }
+        for(int i=0;i<num;i++){
             s = (Ship) shipsAvailable.get(e.getName()).newInstance();
             s.init(g,false,
                     (float) (Math.random()*BaseScreen.VIRTUAL_WIDHT),
@@ -133,6 +136,9 @@ public abstract class LevelService {
             this.s.add(s);
         }
         deleteHook(level, t);
+    }
+    protected void createShip(Level level, Long t) throws InstantiationException, IllegalAccessException {
+        createShip(level, t, null);
     }
 
     protected void deleteHook(Level level, long t){}
