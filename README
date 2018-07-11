@@ -6,3 +6,5 @@ Padrões Utilizados:
         Strategy
         Singleton
         Factory
+        Template Method
+        Observer

@@ -2,10 +2,9 @@ package com.space.invaders.services.shot;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.utils.Array;
-import com.space.invaders.Models.Renderable;
-import com.space.invaders.Models.ship.Ship;
-import com.space.invaders.Models.shot.Bullet;
-import com.space.invaders.Views.BaseScreen;
+import com.space.invaders.models.Renderable;
+import com.space.invaders.models.ship.Ship;
+import com.space.invaders.models.shot.Bullet;
 
 import java.util.Iterator;
 

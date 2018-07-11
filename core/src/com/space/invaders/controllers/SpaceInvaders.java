@@ -6,16 +6,18 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.ObjectMap;
-import com.space.invaders.Models.Renderable;
-import com.space.invaders.Models.ship.Ship;
-import com.space.invaders.Models.shot.Bullet;
-import com.space.invaders.Views.BaseScreen;
-import com.space.invaders.Views.GameScreen;
-import com.space.invaders.Views.MainMenuScreen;
+import com.space.invaders.models.Renderable;
+import com.space.invaders.models.level.Level;
+import com.space.invaders.models.ship.Ship;
+import com.space.invaders.services.level.LevelService;
+import com.space.invaders.services.level.impl.LevelServiceImpl;
+import com.space.invaders.view.screen.BaseScreen;
+import com.space.invaders.view.screen.GameScreen;
+import com.space.invaders.view.screen.LevelScreen;
+import com.space.invaders.view.screen.MainMenuScreen;
 import com.space.invaders.services.AssetsService;
 import com.space.invaders.services.ContactListenerCustom;
 import com.space.invaders.services.factory.BodyFactory;
-import com.space.invaders.services.level.LevelService;
 import com.space.invaders.services.shot.ShootService;
 
 
@@ -29,6 +31,8 @@ public class SpaceInvaders extends Game {
     private World world;
     private Array<Renderable> elements;
     private Array<Ship> ships;
+    private Level level;
+    private Ship player;
 
 
 	@Override
@@ -41,7 +45,6 @@ public class SpaceInvaders extends Game {
 	    bodyFactory = new BodyFactory();
         world = new World(new Vector2(0,0), true);
         world.setContactListener(new ContactListenerCustom());
-        levelService = new LevelService(this);
 	    loadScreens();
         changeScreen(MainMenuScreen.class);
 	}
@@ -62,16 +65,20 @@ public class SpaceInvaders extends Game {
 	}
 
 	public void changeScreen(Class<? extends BaseScreen> screen){
+	    if(this.getScreen() != null) {
+            this.getScreen().dispose();
+        }
 	    this.setScreen(screens.get(screen));
     }
 
 	private void loadScreens(){
 	    screens.put(GameScreen.class, GameScreen.getInstance(this));
 	    screens.put(MainMenuScreen.class, MainMenuScreen.getInstance(this));
+	    screens.put(LevelScreen.class, LevelScreen.getInstance(this));
     }
 
 
-    public void update(float delta, Ship player){
+    public void update(float delta){
         shootService.shoot(player, elements, ships, delta);
 
         for(Renderable r: elements){
@@ -87,6 +94,14 @@ public class SpaceInvaders extends Game {
 
     public Texture getTexture(String path){
 	    return textureManager.getTexture(path);
+    }
+
+    public long getPoints(){
+	    return player.getPoints();
+    }
+
+    public long getTimeCurrent(){
+	    return ((GameScreen)screens.get(GameScreen.class)).getInitialTime();
     }
 
     public World getWorld() {
@@ -151,5 +166,21 @@ public class SpaceInvaders extends Game {
 
     public void setShips(Array<Ship> ships) {
         this.ships = ships;
+    }
+
+    public Level getLevel() {
+        return level;
+    }
+
+    public void setLevel(Level level) {
+        this.level = level;
+    }
+
+    public Ship getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Ship player) {
+        this.player = player;
     }
 }

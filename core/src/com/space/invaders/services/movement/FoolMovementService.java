@@ -1,9 +1,10 @@
 package com.space.invaders.services.movement;
 
 import com.badlogic.gdx.math.Vector2;
-import com.space.invaders.Models.ship.Ship;
-import com.space.invaders.Util.MathUtil;
-import com.space.invaders.Views.BaseScreen;
+import com.space.invaders.controllers.SpaceInvaders;
+import com.space.invaders.models.ship.Ship;
+import com.space.invaders.util.MathUtil;
+import com.space.invaders.view.screen.BaseScreen;
 
 import java.util.Random;
 
@@ -28,8 +29,8 @@ public class FoolMovementService extends MovementService {
             destiny.set(v.x,v.y);
             current = ship.body.getPosition();
 
-            v.x = (v.x - current.x)*100;
-            v.y = (v.y - current.y)*100;
+            v.x = (v.x - current.x)*ship.getSPEED();
+            v.y = (v.y - current.y)*ship.getSPEED();
 
             ship.body.applyForce(v, current, true);
         }
