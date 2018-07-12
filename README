@@ -1,10 +1,20 @@
-Padrões Utilizados:
+
+## APK
+O APK pode ser encontrado [aqui](https://github.com/ronistone/SpaceInvaders/blob/master/out/production/android/android.apk)
 
 
-        MVC
 
-        Strategy
-        Singleton
-        Factory
-        Template Method
-        Observer
+## Padrões Utilizados:
+
+- MVC
+	- Utilizamos o padrão MVC com uma camada quarta camada, a camada de serviço, que é quem faz todo o processamento real, ou seja, o controller faz toda orquestração direcionando o processamento para seus devidos serviços, reduzindo sua responsabilidade e melhorando o reaproveitamento.
+- Strategy
+	- Utilizado para alterar comportamentos das naves em tempo de execução, alterar fases.
+- Singleton
+	- Garantir a criação de somente uma instância de tela para as telas existentes e alguns serviços como AssetService que gerencia todas as texturas do jogo.
+- Factory
+	- Utilizado para criação de instâncias das fases e dos corpos físicos
+- Template Method
+	- Utilizado nos serviços de fases para reduzir a duplicação de código
+- Observer
+	- Utilizado na movimentação das naves inimigas, que podem seguir o jogador
